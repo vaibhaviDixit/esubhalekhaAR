@@ -69,22 +69,22 @@ usort($themeFolders, function($a, $b) {
     
             <!-- Title Section -->
             <div class="col-12 mt-4 text-center">
-                <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching AR invites</h2>
+                <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching Invitation Websites</h2>
             </div>
     
             <!-- Swipeable Cards Section -->
             <div class="col-12 mt-4">
                 <div class="cards-container d-flex align-items-center justify-content-center">
                     <!-- Card 1 -->
-                    <div class="custom-card d-flex row">
+                  <!--   <div class="custom-card d-flex row">
                         <h4 class="text-center mt-5">Smart Wedding Card</h4>
                         <p class="text-center">Personalised for you</p>
-                    </div>
+                    </div> -->
                     <!-- Card 2 -->
-                    <div class="custom-card d-flex row">
+                    <!-- <div class="custom-card d-flex row">
                         <h4 class="text-center mt-5">AR-Invites</h4>
                         <p class="text-center">Cool-aesthetic AR-card.</p>
-                    </div>
+                    </div> -->
                     <!-- Card 3 -->
                     <div class="custom-card d-flex row">
                         <h4 class="text-center mt-5">Wedding Website</h4>
@@ -97,7 +97,7 @@ usort($themeFolders, function($a, $b) {
 
 
 
-   <section class="mt-4">
+  <!--  <section class="mt-4">
         <h3 class="fw-bold text-center">The Products We Offer</h3>
         <div class="container-fluid px-5">
             <div class="row align-items-center g-4">
@@ -161,7 +161,7 @@ usort($themeFolders, function($a, $b) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
       <section class="mt-4">
         <div class="container-fluid px-5">
@@ -231,7 +231,7 @@ usort($themeFolders, function($a, $b) {
     </section>
     
     
-    <section class="mt-4">
+<!--     <section class="mt-4">
         <div class="container-fluid px-5">
             <div class="row align-items-center">
                
@@ -310,7 +310,7 @@ usort($themeFolders, function($a, $b) {
             </div>
         </div>
     </section>
-    
+     -->
 
   <section class="comments-section">
        <div class="comments-content">

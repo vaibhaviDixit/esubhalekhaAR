@@ -56,18 +56,6 @@
   "register": {
     "path": "views/auth/register.php"
   },
-  "smart-cards": {
-    "path": "views/smart-cards.php"
-  },
-  "smart-cards/{id}": {
-    "path": "views/product.php"
-  },
-  "ar-invites": {
-    "path": "views/ar-invites.php"
-  },
-   "ar-invites/{id}": {
-    "path": "views/product.php"
-  },
   "themes-invite": {
     "path": "views/themes.php"
   },
@@ -167,9 +155,6 @@
    "users": {
     "path": "views/dashboard/users.php"
   },
-  "smartcards": {
-    "path": "views/dashboard/wedding/products/smartcards.php"
-  },
   "orders": {
     "path": "views/dashboard/wedding/order/orderlist.php"
   },
@@ -184,27 +169,6 @@
   },
   "addOffer":{
     "path": "views/dashboard/wedding/offers/offeredit.php"
-  },
-  "addSmartCard": {
-    "path": "views/dashboard/wedding/products/addSmartCard.php"
-  },
-   "addSmartCard/{cardID}": {
-    "path": "views/dashboard/wedding/products/addSmartCard.php"
-  },
-   "addSmartCard/{cardID}/upload": {
-    "path": "views/dashboard/wedding/uploader.php"
-  },
-  "arinvites": {
-    "path": "views/dashboard/wedding/products/arinvites.php"
-  },
-  "addARInvite": {
-    "path": "views/dashboard/wedding/products/addARInvite.php"
-  },
-   "addARInvite/{ARID}": {
-    "path": "views/dashboard/wedding/products/addARInvite.php"
-  },
-   "addARInvite/{ARID}/upload": {
-    "path": "views/dashboard/wedding/uploader.php"
   },
   "receipt/{id}/{lang}": {
     "path": "views/dashboard/wedding/receipt.php"

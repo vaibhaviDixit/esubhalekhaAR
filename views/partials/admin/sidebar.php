@@ -64,7 +64,7 @@ $wedding = new Wedding();
         </a>
       </li>
 
-        <li class="nav-item my-2">
+       <!--  <li class="nav-item my-2">
         <a class="nav-link smartcards" aria-current="page" href="<?php echo route('smartcards'); ?>">
          <i class="bi bi-envelope-paper-heart-fill"></i>
           Smart Cards
@@ -77,7 +77,7 @@ $wedding = new Wedding();
           AR Invites
         </a>
       </li>
-
+ -->
 
        <li class="nav-item my-2">
         <a class="nav-link orders" aria-current="page" href="<?php echo route('orders'); ?>">
@@ -141,7 +141,7 @@ $wedding = new Wedding();
       </li>
 
 
-        <li class="nav-item my-2">
+     <!--    <li class="nav-item my-2">
         <a class="nav-link smartcards text-white" aria-current="page" href="<?php echo route('smartcards'); ?>">
          <i class="bi bi-envelope-paper-heart-fill"></i>
           Smart Cards
@@ -153,7 +153,7 @@ $wedding = new Wedding();
           <i class="bi bi-upc-scan"></i>
           AR Invites
         </a>
-      </li>
+      </li> -->
 
        <li class="nav-item my-2">
         <a class="nav-link orders text-white" aria-current="page" href="<?php echo route('orders'); ?>">

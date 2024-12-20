@@ -13,13 +13,13 @@
                                 <h6 class="mb-2">Quick links</h6>
                                 <p style="text-decoration: underline;">About</p>
                                 <p style="text-decoration: underline; margin-top: -10px;">Pricing</p>
-                                <p style="text-decoration: underline; margin-top: -10px;">AR Invites</p>
+                                <p style="text-decoration: underline; margin-top: -10px;">Themes</p>
                             </div>
                             <div class="col-6">
                                 <h6 class="mb-2">Quick links</h6>
                                 <p style="text-decoration: underline;">About</p>
                                 <p style="text-decoration: underline; margin-top: -10px;">Pricing</p>
-                                <p style="text-decoration: underline; margin-top: -10px;">AR Invites</p>
+                                <p style="text-decoration: underline; margin-top: -10px;">Themes</p>
                             </div>
                         </div>
                     </div>

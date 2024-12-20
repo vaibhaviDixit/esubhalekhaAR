@@ -25,7 +25,7 @@
                         <a class="nav-link font-heading" aria-current="page" href="#">Price</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-heading" aria-current="page" href="#">AR-Invites</a>
+                        <a class="nav-link font-heading" aria-current="page" href="#">Themes</a>
                     </li>
 
                     <?php if (App::getSession()) { ?>
@@ -57,7 +57,7 @@
 
             <?php } ?>
 
-                <a href="<?php echo route('smart-cards'); ?>" class="btn order-now-btn">Order Now</a>
+                <a href="<?php echo route('themes-invite'); ?>" class="btn order-now-btn">Order Now</a>
             </div>
         </nav>
     </header>

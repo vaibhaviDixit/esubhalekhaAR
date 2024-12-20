@@ -71,11 +71,6 @@ require('views/partials/dashboard/tracks.php');
         </a>
       </li>
 
-      <li class="nav-item my-2">
-        <a class="nav-link myorders" aria-current="page" href="<?php echo route('myorders'); ?>">
-          <i class="bi bi-bag-check-fill"></i> Orders
-        </a>
-      </li>
 
       <?php if (isset($_REQUEST['id']) && isset($_REQUEST['lang'])): ?>
         <li class="nav-item my-2">
@@ -154,11 +149,6 @@ require('views/partials/dashboard/tracks.php');
 
       </li>
       
-      <li class="nav-item my-2">
-        <a class="nav-link myorders" aria-current="page" href="<?php echo route('myorders'); ?>">
-          <i class="bi bi-bag-check-fill"></i> Orders
-        </a>
-      </li>
 
       </ul>
 

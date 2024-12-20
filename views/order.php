@@ -8,7 +8,7 @@ include("views/partials/head.php");
 // print_r($_SESSION);
 if(count($_SESSION['cart']['smartCard']) == 0 && count($_SESSION['cart']['ARInvite']) == 0 && count($_SESSION['cart']['theme']) == 0  ){
 
-    redirect("smart-cards");
+    redirect("themes-invite");
 }
 
 DB::connect();

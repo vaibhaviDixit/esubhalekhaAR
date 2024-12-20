@@ -247,16 +247,18 @@ body {
 
 /* Button Styles */
 .order-now-btn {
-    background-color: #ff5e63;
-    color: white;
-    border: none;
+    color: var(--color-white) !important;
+    background-color: var(--color-primary-1);
+    border: 2px solid var(--color-primary-1);
     padding: 10px 20px;
     border-radius: 30px;
     transition: background-color 0.3s ease;
 }
 
 .order-now-btn:hover {
-    background-color: #d44c52;
+    color: var(--color-white) !important;
+    background-color: var(--color-primary-1);
+    border-color: var(--color-primary-1);
 }
 
 /* Comments Section Styles */

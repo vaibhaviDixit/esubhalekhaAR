@@ -58,17 +58,17 @@ usort($themeFolders, function($a, $b) {
         <!-- main content here -->
 
 <main class="col-md-9 mx-auto col-lg-10 px-md-4 timelineDiv">
-<div class="d-flex align-items-center justify-content-center mb-4">
+<!-- <div class="d-flex align-items-center justify-content-center mb-4">
   <a href="<?= route('smart-cards') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">1</a>
   <span class="line"></span>
   <a href="<?= route('ar-invites') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">2</a>
   <span class="line"></span>
   <a href="<?= route('themes-invite') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary active">3</a>
-</div>
+</div> -->
 
       <!-- Section 3: Website Themes -->
     <div id="section3" class="timeline-item mb-5">
-        <h3>3. Website Themes</h3>
+        <h3 class="mb-3">Website Themes</h3>
         <div class="owl-carousel owl-theme timelineProducts">
             <?php
             foreach ($websiteThemes as $theme) {
@@ -122,9 +122,11 @@ usort($themeFolders, function($a, $b) {
         </div>
 
         <div class="card-body d-flex justify-content-between">
-            <form>
+           <!--  <form>
                 <button type="submit" name="removeFromCart" value="theme" class="btn btn-secondary mt-3">Skip</button>
-            </form>
+            </form> -->
+            <div> </div>
+
             <a href="<?= route('order') ?>" class="btn btn-primary mt-3">Continue</a>
         </div>
 

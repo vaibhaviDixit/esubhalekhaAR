@@ -36,7 +36,7 @@ $userOrders = $order->getOrdersByUser($userID);
     img{
         object-fit: cover;
         width: 100%;
-        height: 100px !important;
+        height: 150px !important;
     }
     .line{
         width: 100%;
@@ -52,19 +52,19 @@ $userOrders = $order->getOrdersByUser($userID);
 
     <div id="app" class="">
         <!-- main content here -->
-        <main class="col-md-9 mx-auto col-lg-10 px-md-4 pt-5 col-9">
+        <main class="col-md-9 mx-auto col-lg-10 px-md-4 col-9">
 
              <h1 class="h2">Order History</h1>
             
-             <div class="d-flex align-items-start pt-2 flex-wrap justify-content-center" style="background: var(--color-primary-5); padding: 10px;">
+             <div style="padding-bottom: 20px;">
 
               <?php
                 foreach ($userOrders as $orderKey => $orderValue) {
                     $cart = json_decode($orderValue['cart'], true);
                 ?>
                 
-                <div class="w-100 mb-2">
-                    <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center pt-2 flex-wrap justify-content-center" style="background-color: #fff; padding: 10px; margin: 10px 0; border-radius: 9px;">
+                    <div class="">
                         <dir>
                             Order Date: <strong><?php $dt = new DateTime($orderValue['createdAt']); echo $dt->format('d/m/y'); ?></strong>
                         </dir>
@@ -74,8 +74,6 @@ $userOrders = $order->getOrdersByUser($userID);
 
                     </div>
 
-                </div>
-
             <?php
                     foreach ($cart as $cartKey => $cartValue) {
                         if(isset( $cartValue['id']) && $cartValue['id']!=''){
@@ -83,7 +81,7 @@ $userOrders = $order->getOrdersByUser($userID);
             ?>
 
 <div class="d-flex align-items-center flex-wrap justify-content-center mx-3">
-<div class="text-center">   
+<div class="text-center d-flex">   
     <div class="">
         <?php 
             if ($cartKey === 'theme') {
@@ -112,7 +110,7 @@ $userOrders = $order->getOrdersByUser($userID);
 
             <?php if ($cartKey === 'theme'){ ?>
                 <!-- Uncomment if necessary -->
-                <!-- <a href="<?= $cartValue['url'] ?>" target="_blank">(Preview)</a><br> -->
+                <a href="<?= $cartValue['url'] ?>" target="_blank">(Preview)</a><br> 
             <?php } ?></h6>
 
             <p class="card-text">
@@ -136,7 +134,7 @@ $userOrders = $order->getOrdersByUser($userID);
                     } // cart for each ends
                     ?>
 
-            <div class="line"></div>
+             </div>
             <?php
                 }
             ?>
