@@ -42,6 +42,7 @@ if(isset($_REQUEST['theme'])){
 //  $themes = $themeController->render($_REQUEST['theme'], $_REQUEST['type']);  
 }
 else if(isset($weddingData['template'])){
+
   locked(['user', 'host', 'manager', 'admin']);
   $themes = $themeController->render($weddingData['template'], $_REQUEST['type']);  
 

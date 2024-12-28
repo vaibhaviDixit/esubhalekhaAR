@@ -68,8 +68,9 @@ else{
     <div class="text-end"><a class="btn btn-primary btn-sm" href="<?php echo route('myorders'); ?>?back=dashboard">
             Add Wedding <i class="bi bi-plus-circle"></i></a></div>
 
-    <div class="text-start"><a class="btn btn-primary btn-sm" href="<?php echo route('themes'); ?>?back=dashboard">
-            <i class="bi bi-image-fill"></i> Themes & Templates</a></div>
+<!--     <div class="text-start"><a class="btn btn-primary btn-sm" href="<?php echo route('themes'); ?>?back=dashboard">
+            <i class="bi bi-image-fill"></i> Themes & Templates</a></div> -->
+            
     <div class="table-responsive mb-5">
         <table id="myTable" class="table table-striped table-sm">
             <thead>

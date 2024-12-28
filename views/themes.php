@@ -127,7 +127,7 @@ usort($themeFolders, function($a, $b) {
             </form> -->
             <div> </div>
 
-            <a href="<?= route('order') ?>" class="btn btn-primary mt-3">Continue</a>
+            <!-- <a href="<?= route('order') ?>" class="btn btn-primary mt-3">Continue</a> -->
         </div>
 
     </div>

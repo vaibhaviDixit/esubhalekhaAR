@@ -105,7 +105,8 @@ $(document).ready(function() {
         },
         loop: true,
         margin: 20,
-        nav: false,
+        nav: true,
+          navText: ["<span class='carousel-control-prev-icon'></span>", "<span class='carousel-control-next-icon'></span>"], 
         dots: true,
         autoplay: true,
         autoplayTimeout: 3000,
@@ -164,13 +165,49 @@ $(document).ready(function() {
     }
 
     // Initialize Card Swipe Cycle
-    const cardStack = document.querySelector('.cards-container');
-    if (cardStack) {
-        console.log('Initializing CardSwipeCycle...');
-        new CardSwipeCycle(cardStack);
-    } else {
-        console.error('Card stack not found in the DOM.');
+    // const cardStack = document.querySelector('.cards-container');
+    // if (cardStack) {
+    //     console.log('Initializing CardSwipeCycle...');
+    //     new CardSwipeCycle(cardStack);
+    // } else {
+    //     console.error('Card stack not found in the DOM.');
+    // }
+
+    const cards = document.querySelectorAll('.E-Shublekha-card');
+    let currentIndex = 0;
+
+    // Function to update card positions
+    function updateCards() {
+      cards.forEach((card, index) => {
+        card.classList.remove('active', 'next', 'previous');
+        if (index === currentIndex) {
+          card.classList.add('active');
+        } else if (index === (currentIndex + 1) % cards.length) {
+          card.classList.add('next');
+        } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
+          card.classList.add('previous');
+        }
+      });
     }
+
+    // Check screen width and add event listeners only for width >= 480px
+    if (window.innerWidth >= 480) {
+      cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          currentIndex = index;
+          updateCards();
+        });
+      });
+
+      // Initialize the cards
+      updateCards();
+    } else {
+      // Optional: Add behavior for smaller screens, if needed
+      console.log('Width less than 480px: Carousel functionality disabled.');
+    }
+
+
+
 });
 
 
@@ -185,7 +222,12 @@ body {
     font-family: "Roboto", serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+
 }
+
+
 
 /* Container Styles */
 .container {
@@ -200,6 +242,9 @@ body {
     border-radius: 90px;
     padding: 10px 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 9999999999;
 }
 
 .main-navbar .navbar-brand {
@@ -232,7 +277,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 15px;
-    padding: 20px;
+    /*padding: 20px;*/
     transition: transform 0.2s;
 }
 
@@ -241,8 +286,10 @@ body {
 }
 
 .product-image {
-    height: 250px;
-    width: 100%;
+    min-height: 150px;
+    max-height: 150px;
+    width: 100% !important;
+    object-fit: cover;
 }
 
 /* Button Styles */
@@ -290,7 +337,7 @@ body {
 
 .comments-floating {
     position: relative;
-    height: 300px; /* Set a height for the floating area */
+    height: 100px;
 }
 
 .comment-bubble {
@@ -424,8 +471,8 @@ section:nth-child(3){
         border-radius: 12px;
         display: flex;
         justify-content: center;
-        align-items: center;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        /*align-items: center;*/
+        /*box-shadow: 0 6px 12px rgba(0,0,0,0.1);*/
         transition: 
             transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
             opacity 0.7s;
@@ -435,11 +482,11 @@ section:nth-child(3){
         transform: rotate(-4deg) translateY(0px);
         z-index: 1; 
     }
-    ..custom-card:nth-child(2) { 
+    .custom-card:nth-child(2) { 
         transform: rotate(3deg) translateY(15px);
         z-index: 2; 
     }
-    ..custom-card:nth-child(3) { 
+    .custom-card:nth-child(3) { 
         transform: rotate(-2deg) translateY(30px);
         z-index: 3; 
     }
@@ -470,14 +517,155 @@ section:nth-child(3){
 
     /* Adjust random positions for mobile */
     .comment-bubble:nth-child(1) { top: 30%; left: 5%; }
-    .comment-bubble:nth-child(2) { top: 15%; left: 20%; }
-    .comment-bubble:nth-child(3) { top: 20%; left: 60%; }
-    .comment-bubble:nth-child(4) { top: 35%; left: 40%; }
+    .comment-bubble:nth-child(2) { top: -10%; left: 20%; }
+    .comment-bubble:nth-child(3) { top: -17%; left: 67%; }
+    .comment-bubble:nth-child(4) { top: 62%; left: 40%; }
     .comment-bubble:nth-child(5) { top: 45%; left: 75%; }
     .comment-bubble:nth-child(6) { top: 50%; left: 10%; }
     .comment-bubble:nth-child(7) { top: 90%; left: 30%; }
     .comment-bubble:nth-child(8) { top: 75%; left: 50%; }
 }
+
+
+   .E-Shublekha-container {
+      width: 100%;
+      padding: 24px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .E-Shublekha-title {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .E-Shublekha-carousel {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      height: 500px;
+      /* overflow: hidden; */
+      display: flex;
+      justify-content: center;
+    }
+
+    .E-Shublekha-card {
+      position: absolute;
+      top: 0;
+      width: calc(100% / 3 - 2rem);
+      margin: 0 16px;
+      background: rgba(255, 255, 255); 
+      /*background: green;*/
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .E-Shublekha-card h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .E-Shublekha-card p {
+      margin-bottom: 16px;
+    }
+
+    .E-Shublekha-card button {
+      border: 1px solid black;
+      border-radius: 999px;
+      padding: 8px 32px;
+      background: transparent;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .E-Shublekha-card button:hover {
+      background: black;
+      color: white;
+    }
+
+    .E-Shublekha-card.active {
+      left: 33%;
+      opacity: 1;
+      transform: scale(1);
+      z-index: 200;
+    }
+
+    .E-Shublekha-card.next {
+      left: 66%;
+      opacity: 0.7;
+      transform: scale(0.9);
+    }
+
+    .E-Shublekha-card.previous {
+      left: 0;
+      opacity: 0.7;
+      transform: scale(0.9);
+    }
+
+    @media (max-width: 768px) {
+      .E-Shublekha-carousel {
+        height: 400px;
+      }
+
+      .E-Shublekha-card {
+        width: calc(100% / 2 - 1rem);
+      }
+
+      .E-Shublekha-card.active {
+        left: 25%;
+      }
+
+      .E-Shublekha-card.next {
+        opacity: 0.5;
+        left: 50%;
+      }
+
+      .E-Shublekha-card.previous {
+        opacity: 0.5;
+        left: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+        .E-Shublekha-carousel {
+          display: flex;
+          flex-direction: column; /* Arrange cards vertically */
+          overflow-y: auto; /* Enable vertical scrolling */
+          scroll-snap-type: y mandatory; /* Use vertical snap behavior */
+          height: auto; /* Adjust height to fit content */
+          max-height: 100vh; /* Optional: Limit height to viewport */
+        }
+      
+        .E-Shublekha-card {
+          scroll-snap-align: center; /* Snap card to center while scrolling */
+          flex: 0 0 auto; /* Ensure cards don’t shrink */
+          width: 90%; /* Full-width cards with some margin */
+          margin: 16px auto; /* Center horizontally with spacing */
+          position: relative; /* No offset */
+          transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+          opacity: 1; /* Consistent opacity */
+        }
+      
+        /* Remove active, next, and previous styles for uniformity */
+        .E-Shublekha-card.active,
+        .E-Shublekha-card.next,
+        .E-Shublekha-card.previous {
+          transform: none; /* Remove scale transformations */
+          opacity: 1; /* Same opacity for all */
+          color: black; /* Ensure consistent text color */
+        }
+      }
+      
+      
+  
 
 /* for arinvites, smartcards and themes*/
 
@@ -586,7 +774,7 @@ if (isset($_POST['addToCart'])) {
         $_SESSION['cart'][$itemType][] = $itemID;
 
     }
-    echo "<script>window.location.href=window.location.href; </script>";
+   redirect("order");
 }
 
 // "Remove from Cart"

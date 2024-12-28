@@ -18,6 +18,9 @@ if(!isset($_REQUEST['id'])){
 controller("Order");
 $orderController = new Order();
 
+controller("Theme");
+$theme = new ThemeController();
+
 $suerID = App::getUser()['userID'];
 $orderID = $_REQUEST['id'];
 
@@ -28,6 +31,11 @@ if(!$userOrders){
 }
 
 
+$myorder = $orderController->getOrderById($orderID);
+$mythemeID = json_decode($myorder['cart'],true)['theme']['id'];
+$theme = $theme->getName($mythemeID);
+
+$themeName = "theme_".$mythemeID."_".$theme;
 
 ?>
 
@@ -49,6 +57,8 @@ if(!$userOrders){
 
 				$_REQUEST['host'] = App::getUser()['userID'];
 				$_REQUEST['orderID'] = $_REQUEST['id'];
+				$_REQUEST['template'] = $themeName;
+
 			
 				$createWedding = $wedding->create($_REQUEST);
 

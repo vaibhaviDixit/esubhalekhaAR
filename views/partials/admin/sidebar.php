@@ -135,8 +135,7 @@ $wedding = new Wedding();
 
        <li class="nav-item my-2">
         <a class="nav-link users text-white" aria-current="page" href="<?php echo route('users'); ?>">
-          <i class="bi bi-people"></i>
-          Users
+          <i class="bi bi-people"></i> <span class="menu-text ms-2">Users</span>
         </a>
       </li>
 
@@ -157,8 +156,7 @@ $wedding = new Wedding();
 
        <li class="nav-item my-2">
         <a class="nav-link orders text-white" aria-current="page" href="<?php echo route('orders'); ?>">
-          <i class="bi bi-bag-check-fill"></i>
-          Orders
+          <i class="bi bi-bag-check-fill"></i> <span class="menu-text ms-2">Orders</span>
         </a>
       </li>
 
@@ -166,8 +164,7 @@ $wedding = new Wedding();
 
        <li class="nav-item my-2">
         <a class="nav-link offers text-white" aria-current="page" href="<?php echo route('offers'); ?>">
-          <i class="bi bi-percent"></i>
-          Offers
+          <i class="bi bi-percent"></i> <span class="menu-text ms-2">Offers</span>
         </a>
       </li>
 

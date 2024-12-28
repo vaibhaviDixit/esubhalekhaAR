@@ -80,7 +80,6 @@ require('views/partials/dashboard/tracks.php');
           $menuItems = [
             'Progress ('.$completed.'/'.sizeof($tracks).')' => ['icon' => 'bi bi-sort-up-alt', 'route' => 'wedding/' . $_REQUEST['id'] . '/' . $_REQUEST['lang'] . '/progress'],
             'Basic Details' => ['icon' => 'bi bi-clipboard-data', 'route' => 'wedding/' . $_REQUEST['id'] . '/' . $_REQUEST['lang'] . '/basic-details'],
-            'Theme' => ['icon' => 'bi bi-file-image-fill', 'route' => 'wedding/' . $_REQUEST['id'] . '/' . $_REQUEST['lang'] . '/theme'],
             'Hosts' => ['icon' => 'bi bi-people-fill', 'route' => 'wedding/' . $_REQUEST['id'] . '/' . $_REQUEST['lang'] . '/hosts'],
             'Events' => ['icon' => 'bi bi-clock', 'route' => 'wedding/' . $_REQUEST['id'] . '/' . $_REQUEST['lang'] . '/timeline'],
             'Additional Details' => ['icon' => 'bi bi-pie-chart', 'route' => 'wedding/' . $_REQUEST['id'] . '/' . $_REQUEST['lang'] . '/additional-details'],

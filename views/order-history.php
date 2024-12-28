@@ -33,7 +33,7 @@ $userOrders = $order->getOrdersByUser($userID);
         margin-top: 12vh;
         max-height: 100vh !important;
     }
-    img{
+    #app img{
         object-fit: cover;
         width: 100%;
         height: 150px !important;

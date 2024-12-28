@@ -35,9 +35,6 @@
   "ar": {
     "path": "views/ar.php"
   },
-  "themes": {
-    "path": "views/dashboard/themes.php"
-  },
   "themes/{category}": {
     "path": "views/themes/category.php"
   },
@@ -79,9 +76,6 @@
   },
   "wedding/new/{id}": {
     "path": "views/dashboard/wedding/new.php"
-  },
-  "wedding/{id}/theme": {
-    "path": "views/dashboard/wedding/theme.php"
   },
   "wedding/{id}/{lang}/upload": {
     "path": "views/dashboard/wedding/uploader.php"
@@ -139,9 +133,6 @@
   },
   "wedding/{id}/{lang}/gallery": {
     "path": "views/dashboard/wedding/gallery.php"
-  },
-  "wedding/{id}/{lang}/theme": {
-    "path": "views/dashboard/wedding/theme.php"
   },
   "wedding/{id}/{lang}/preview": {
     "path": "views/dashboard/wedding/preview.php"

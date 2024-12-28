@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main-navbar">
             
             <a href="<?= route("/"); ?>">
-                <img  src="<?php assets('img/logo-esubhalekha.com.svg') ?>" alt="logo" style="width: 160px; height: 40px; margin-top: -4px;" />
+                <img  src="<?php assets('img/eSubhalekha.png') ?>" alt="logo" style="width: 60px; height: 60px; margin-top: -4px;" />
             </a>
             
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,6 @@
 
             <?php } ?>
 
-                <a href="<?php echo route('themes-invite'); ?>" class="btn order-now-btn">Order Now</a>
             </div>
         </nav>
     </header>

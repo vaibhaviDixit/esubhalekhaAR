@@ -147,7 +147,7 @@ $totalPrice = $cart['smartCards']['totalPrice'] + $cart['arInvites']['price'] + 
         margin-top: 12vh;
         max-height: 100vh !important;
     }
-    img{
+    .prod img{
         object-fit: cover;
         width: 100px;
         height: 100px !important;
@@ -186,8 +186,8 @@ $totalPrice = $cart['smartCards']['totalPrice'] + $cart['arInvites']['price'] + 
 
         <!-- Event Date and Time Input -->
         <div class="mb-3 col-sm-4">
-            <label for="eventDate" class="form-label">Event Date and Time</label>
-            <input type="datetime-local" class="form-control" id="eventDate">
+            <label for="eventDate" class="form-label">Event Date</label>
+            <input type="date" class="form-control" id="eventDate">
             <small id="dateError" class="text-danger"></small>
         </div>
 
@@ -198,7 +198,7 @@ $totalPrice = $cart['smartCards']['totalPrice'] + $cart['arInvites']['price'] + 
     <?php foreach ($fetchedItems as  $type => $item ): ?>
         <div class="mb-2 mt-2">
             <div class="d-flex align-items-center">
-                <div class="">
+                <div class="prod">
                     <?php 
                         if ($type === 'theme'){
                     ?>
@@ -268,107 +268,111 @@ $totalPrice = $cart['smartCards']['totalPrice'] + $cart['arInvites']['price'] + 
 <script type="text/javascript">
 
 
-    const userName = document.getElementById("userName");
-    const phone = document.getElementById("phone");
-    const eventDate = document.getElementById("eventDate");
-    const checkoutBtn = document.getElementById("checkoutBtn");
+   const userName = document.getElementById("userName");
+const phone = document.getElementById("phone");
+const eventDate = document.getElementById("eventDate");
+const checkoutBtn = document.getElementById("checkoutBtn");
 
-    const nameError = document.getElementById("nameError");
-    const phoneError = document.getElementById("phoneError");
-    const dateError = document.getElementById("dateError");
+const nameError = document.getElementById("nameError");
+const phoneError = document.getElementById("phoneError");
+const dateError = document.getElementById("dateError");
 
-    let nameE = true;
-    let phoneE = true;
-    let dateE = true;
+let nameE = true;
+let phoneE = true;
+let dateE = true;
 
-    let phones = []
+let nameTouched = false;
+let phoneTouched = false;
+let dateTouched = false;
 
-    <?php
-    if(!App::getUser()['userID']){
-        foreach ($customers as $usr) {
-          echo "phones.push('" . md5($usr['phone']) . "')\n";
-        }
+let phones = [];
+
+<?php
+if (!App::getUser()['userID']) {
+    foreach ($customers as $usr) {
+        echo "phones.push('" . md5($usr['phone']) . "')\n";
     }
-    ?>
+}
+?>
 
-    function validateName() {
-        if (userName.value.length >= 6) {
-            nameError.textContent = "";
-            nameE = false;
-            checkInputs();
-        } else {
-            nameError.textContent = "Name can't be less than 6 characters.";
-            nameE = true;
-            checkInputs();
-        }
-
+function validateName() {
+    if (userName.value.length==0 && !nameTouched) return; // Skip validation if not touched
+    if (userName.value.length >= 6) {
+        nameError.textContent = "";
+        nameE = false;
+    } else {
+        nameError.textContent = "Name can't be less than 6 characters.";
+        nameE = true;
     }
-
-    function validatePhone() {
-
-        var regmm = "^([6-9][0-9]{9})$";
-        var regmob = new RegExp(regmm);
-
-        if (!regmob.test(phone.value)) {
-            phoneError.textContent = "Please enter a valid 10-digit phone number.";
-            phoneE = true;
-            checkInputs();
-        
-        } else if (phones.includes(CryptoJS.MD5(phone.value.trim()).toString())) {
-            phoneError.textContent = "Phone already in use";
-            phoneE = true;
-            checkInputs();
-
-        } else {
-            phoneError.textContent = "";
-            phoneE = false;
-            checkInputs();
-        }
-    }
-
-    function validateDate() {
-        const selectedDate = new Date(eventDate.value);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0); // Set today's date to midnight
-
-        if (selectedDate >= today) {
-            dateError.textContent = "";
-            dateE = false;
-            checkInputs();
-        } else {
-            dateError.textContent = "Invalid date! Select a future date.";
-            dateE = true;
-            checkInputs();
-        }
-    }
-
-    function checkInputs() {
-        let errors = nameE + phoneE + dateE;
-        console.log(errors)
-
-        // Enable button if all validations pass
-        if (errors) {
-            checkoutBtn.classList.add("disabled");
-        } else{
-            checkoutBtn.classList.remove("disabled");
-        }
-    }
-
     checkInputs();
-    validatePhone();
+}
+
+function validatePhone() {
+    if (userName.value.length==0 && !phoneTouched) return; // Skip validation if not touched
+    const regmm = "^([6-9][0-9]{9})$";
+    const regmob = new RegExp(regmm);
+
+    if (!regmob.test(phone.value)) {
+        phoneError.textContent = "Please enter a valid 10-digit phone number.";
+        phoneE = true;
+    } else if (phones.includes(CryptoJS.MD5(phone.value.trim()).toString())) {
+        phoneError.textContent = "Phone already in use";
+        phoneE = true;
+    } else {
+        phoneError.textContent = "";
+        phoneE = false;
+    }
+    checkInputs();
+}
+
+function validateDate() {
+    if (!dateTouched) return; // Skip validation if not touched
+    const selectedDate = new Date(eventDate.value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set today's date to midnight
+
+    if (selectedDate >= today) {
+        dateError.textContent = "";
+        dateE = false;
+    } else {
+        dateError.textContent = "Invalid date! Select a future date.";
+        dateE = true;
+    }
+    checkInputs();
+}
+
+function checkInputs() {
+    if (!nameE && !phoneE && !dateE) {
+        checkoutBtn.classList.remove("disabled");
+    } else {
+        checkoutBtn.classList.add("disabled");
+    }
+}
+
+// Event listeners for input fields to validate and check inputs
+userName.addEventListener("focusout", () => {
+    nameTouched = true;
     validateName();
+});
+userName.addEventListener("keyup", validateName);
+
+phone.addEventListener("focusout", () => {
+    phoneTouched = true;
+    validatePhone();
+});
+phone.addEventListener("keyup", validatePhone);
+
+eventDate.addEventListener("focusout", () => {
+    dateTouched = true;
     validateDate();
+});
+eventDate.addEventListener("keyup", validateDate);
 
-    // Event listeners for input fields to validate and check inputs
-    userName.addEventListener("focusout", validateName);
-    userName.addEventListener("keyup", validateName);
+validateName();
+validatePhone();
+validateDate();
 
-    phone.addEventListener("focusout", validatePhone);
-    phone.addEventListener("keyup", validatePhone);
-
-    eventDate.addEventListener("focusout", validateDate);
-    eventDate.addEventListener("keyup", validateDate);
-
+checkInputs();
 
     // Razorpay checkout configuration
     var options = {
