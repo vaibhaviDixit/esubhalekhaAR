@@ -1,6 +1,7 @@
 <header>
         <div class="h-4">. </div>
-        <nav class="navbar navbar-expand-lg navbar-light main-navbar">
+        <div class="d-flex justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light main-navbar " style="width:80vw">
             
             <a href="<?= route("/"); ?>">
                 <img  src="<?php assets('img/eSubhalekha.png') ?>" alt="logo" style="width: 60px; height: 60px; margin-top: -4px;" />
@@ -59,4 +60,5 @@
 
             </div>
         </nav>
+        </div>
     </header>
