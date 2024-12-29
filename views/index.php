@@ -65,14 +65,14 @@ usort($themeFolders, function($a, $b) {
               <!--   <button class="custom-btn rounded-pill px-4 py-2" style="border: none; background-color: #FFFFFF78; font-size: 14px;">
                     for the moments of life
                 </button> -->
+                <div class="h-4"></div>
 
                 <a href="<?php echo route('themes-invite'); ?>" class="btn order-now-btn">Getting Start</a>
 
             </div>
 
-    
             <!-- Title Section -->
-            <div class="col-12 mt-4 text-center">
+            <div class="col-12 mt-5 text-center">
                 <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching Invitation Websites</h2>
             </div>
     
@@ -94,7 +94,7 @@ usort($themeFolders, function($a, $b) {
                                 <div class="card-body" style="margin-top: 10px;">
                                      <h5>₹<?= $theme['price'] ?></h5>
                                     <div class="d-flex align-items-center gap-3">
-                                        <dir style="margin-top: 5px;"><del>₹35</del></dir>
+                                        <div style="margin-top: 5px;"><del>₹35</del></div>
                                         <div class="rounded-pill d-flex align-items-center justify-content-center" style="font-size: 14px; background-color: #494949; color: white; padding: 5px 9px; text-align: center;">45% off</div>
                                     </div>
                                     <div class="card-text mt-3" style="font-size: 14px;"><?= $theme['title'] ?></div>
@@ -131,44 +131,51 @@ usort($themeFolders, function($a, $b) {
     </section>
     
     
-     <section>
+    <section>
         <div class="E-Shublekha-container mb-4">
             <h2 class="E-Shublekha-title">OUR PLANS</h2>
             <div class="E-Shublekha-carousel">
-              <div class="E-Shublekha-card">
-                <div>
-                  <h3>PREMIUM 1</h3>
-                  <p>The ultimate package for grand weddings. Includes premium services and exclusive perks.</p>
+                                
+                <!-- Plan 1: Short-Term -->
+                <div class="E-Shublekha-card">
+                    <div>
+                        <h3>PRELUDE PLAN</h3>
+                        <p>Perfect for a short-term boost! Includes a wedding website for PR, active 1 month before and 1 month after your big day.   </p>
+                    </div>
+                    <div>
+                        <p>Rs:499/-</p>
+                        <button>Buy Now</button>
+                    </div>
                 </div>
-                <div>
-                  <p>Rs:599/-</p>
-                  <button>Buy Now</button>
+                                
+                <!-- Plan 2: Yearly -->
+                <div class="E-Shublekha-card">
+                    <div>
+                        <h3>ANNIVERSARY PLAN</h3>
+                        <p>The ideal choice for extended celebrations! A wedding website with PR support for the first year of your marriage.</p>
+                    </div>
+                    <div>
+                        <p>Rs:999/-</p>
+                        <button>Buy Now</button>
+                    </div>
                 </div>
-              </div>
-              <div class="E-Shublekha-card">
-                <div>
-                  <h3>PREMIUM 2</h3>
-                  <p>The ultimate package for grand weddings. Includes premium services and exclusive perks.</p>
+                                
+                <!-- Plan 3: Lifetime -->
+                <div class="E-Shublekha-card">
+                    <div>
+                        <h3>LEGACY PLAN</h3>
+                        <>For everlasting memories! A lifetime wedding website for PR and a digital archive of your beautiful journey together.</   p>
+                    </div>
+                    <div>
+                        <p>Rs:1999/-</p>
+                        <button>Buy Now</button>
+                    </div>
                 </div>
-                <div>
-                  <p>Rs:599/-</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="E-Shublekha-card">
-                <div>
-                  <h3>PREMIUM 3</h3>
-                  <p>The ultimate package for grand weddings. Includes premium services and exclusive perks.</p>
-                </div>
-                <div>
-                  <p>Rs:599/-</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
+                                
             </div>
-          </div>
-          
+        </div>
     </section>
+
 
   <section class="comments-section">
        <div class="comments-content">
