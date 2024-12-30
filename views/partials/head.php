@@ -107,7 +107,7 @@ $(document).ready(function() {
         margin: 20,
         nav: true,
           navText: ["<span class='carousel-control-prev-icon'></span>", "<span class='carousel-control-next-icon'></span>"], 
-        dots: true,
+        dots: false,
         autoplay: true,
         autoplayTimeout: 3000,
         autoplayHoverPause: true
@@ -284,6 +284,26 @@ body {
 .card.custom-products:hover {
     transform: scale(1.05);
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    background-size: cover;
+    z-index: 999;
+}
+
+.carousel-control-prev-icon {
+    right: 10vw; /* Adjust for padding from the left edge */
+}
+
+.carousel-control-next-icon {
+    left: 10vw; /* Adjust for padding from the right edge */
+}
+
 
 .product-image {
     min-height: 150px;
