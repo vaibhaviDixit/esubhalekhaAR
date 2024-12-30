@@ -1,10 +1,10 @@
 <header>
-        <div class="h-4">. </div>
+        <div class="h-2">. </div>
         <div class="d-flex justify-content-center">
-        <nav class="navbar navbar-expand-lg navbar-light main-navbar " style="width:80vw">
+        <nav class="navbar navbar-expand-lg navbar-light main-navbar py-1" style="width:80vw; opacity:90%">
             
             <a href="<?= route("/"); ?>">
-                <img  src="<?php assets('img/eSubhalekha.png') ?>" alt="logo" style="width: 60px; height: 60px; margin-top: -4px;" />
+                <img  src="<?php assets('img/eSubhalekha.png') ?>" alt="logo" style="width: 40px; height: 40px; margin-top: -4px;" />
             </a>
             
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

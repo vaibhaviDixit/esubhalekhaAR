@@ -67,7 +67,7 @@ usort($themeFolders, function($a, $b) {
                 </button> -->
                 <div class="h-4"></div>
 
-                <a href="<?php echo route('themes-invite'); ?>" class="btn order-now-btn">Getting Start</a>
+                <!-- <a href="<?php echo route('themes-invite'); ?>" class="btn order-now-btn">Getting Start</a> -->
 
             </div>
 
@@ -104,7 +104,7 @@ usort($themeFolders, function($a, $b) {
                                           <form  method="POST">
                                         <?php 
                                              $isItemInCart3 = isset($_SESSION['cart']['theme']) && in_array($theme['themeID'], $_SESSION['cart']['theme']);
-                                              if($isItemInCart3){$btn3="Added to cart";}else{$btn3="Add to cart";}
+                                              if($isItemInCart3){$btn3="Preview";}else{$btn3="Preview";}
                                         ?>
                                     <input type="hidden" name="itemType" value="theme">
                                     <input type="hidden" name="itemID" value="<?= $theme['themeID'] ?>">
@@ -139,36 +139,42 @@ usort($themeFolders, function($a, $b) {
                 <!-- Plan 1: Short-Term -->
                 <div class="E-Shublekha-card">
                     <div>
-                        <h3>PRELUDE PLAN</h3>
-                        <p>Perfect for a short-term boost! Includes a wedding website for PR, active 1 month before and 1 month after your big day.   </p>
+                        <h3>Basic</h3>
+                        <p>-> Short-term boost for your wedding's online presence</p>
+                        <p>-> Includes a wedding website designed for PR purposes</p>
+                        <p>-> Active for 1 month before and 1 month after your big day   </p>
                     </div>
                     <div>
-                        <p>Rs:499/-</p>
-                        <button>Buy Now</button>
+                        <p class="fs-4">Rs:999/-</p>
+                        
                     </div>
                 </div>
                                 
                 <!-- Plan 2: Yearly -->
                 <div class="E-Shublekha-card">
                     <div>
-                        <h3>ANNIVERSARY PLAN</h3>
-                        <p>The ideal choice for extended celebrations! A wedding website with PR support for the first year of your marriage.</p>
+                        <h3>Luxury</h3>
+                        <p>-> Ideal choice for extended wedding celebrations</p>
+                        <p>-> A wedding website with PR support</p>
+                        <p>-> Active for the first year of your marriage.</p>
                     </div>
                     <div>
-                        <p>Rs:999/-</p>
-                        <button>Buy Now</button>
+                        <p class="fs-4">Rs:5999/-</p>
+                        
                     </div>
                 </div>
                                 
                 <!-- Plan 3: Lifetime -->
                 <div class="E-Shublekha-card">
                     <div>
-                        <h3>LEGACY PLAN</h3>
-                        <>For everlasting memories! A lifetime wedding website for PR and a digital archive of your beautiful journey together.</   p>
+                        <h3>Premium</h3>
+                        <p>-> Everlasting memories with a lifetime wedding website</p>
+                        <p>-> Includes PR support throughout</p>
+                        <p>-> A digital archive of your beautiful journey together.</p>
                     </div>
                     <div>
-                        <p>Rs:1999/-</p>
-                        <button>Buy Now</button>
+                        <p class="fs-4">Rs:11999/-</p>
+                        
                     </div>
                 </div>
                                 
@@ -178,22 +184,22 @@ usort($themeFolders, function($a, $b) {
 
 
   <section class="comments-section">
-       <div class="comments-content">
-        <div class="comments-floating">
+  <div class="comments-content ">
+          <div class="comments-floating top-comments">
             <div class="comment-bubble">Great service!</div>
             <div class="comment-bubble">I love this product!</div>
             <div class="comment-bubble">Amazing experience!</div>
             <div class="comment-bubble">Highly recommend!</div>
+          </div>
+          <h2 class="comments-title">They fell in love💗 with our products</h2>
+          <p class="comments-subtitle">Our customers fell in love with personalised products shipped with quality</p>
+          <div class="comments-floating bottom-comments">
+            <div class="comment-bubble">Will definitely come back!</div>
+            <div class="comment-bubble">Fantastic support!</div>
+            <div class="comment-bubble">Very satisfied!</div>
+            <div class="comment-bubble">Best purchase ever!</div>
+          </div>
         </div>
-           <h2 class="comments-title">They fell in love💗 with our products</h2>
-           <p class="comments-subtitle">Our customers fell in love with personalised products shipped with quality</p>
-           <div class="comments-floating">
-               <div class="comment-bubble">Will definitely come back!</div>
-               <div class="comment-bubble">Fantastic support!</div>
-               <div class="comment-bubble">Very satisfied!</div>
-               <div class="comment-bubble">Best purchase ever!</div>
-           </div>
-       </div>
     </section>
   
     <!-- footer -->

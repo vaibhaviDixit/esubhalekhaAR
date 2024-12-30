@@ -11,38 +11,17 @@
 
       <!-- Areas Column -->
       <div class="col-md-2">
-        <h5 class="mb-3">Areas</h5>
-        <ul class="list-unstyled">
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-        </ul>
+       
       </div>
 
       <!-- Resources Column -->
       <div class="col-md-2">
-        <h5 class="mb-3">Resources</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-decoration-none text-muted">Lorem, ipsum.</a></li>
-          <li><a href="#" class="text-decoration-none text-muted">loremm1</a></li>
-          <li><a href="#" class="text-decoration-none text-muted">Applicaloremm1</a></li>
-        </ul>
+        
       </div>
 
       <!-- Our Lab Column -->
       <div class="col-md-2">
-        <h5 class="mb-3">Our Lab</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-decoration-none text-muted">About</a></li>
-          <li><a href="#" class="text-decoration-none text-muted">People</a></li>
-          <li><a href="#" class="text-decoration-none text-muted">Publications</a></li>
-          <li><a href="#" class="text-decoration-none text-muted">Careers</a></li>
-          <li><a href="#" class="text-decoration-none text-muted">AI4Bharat in Action</a></li>
-        </ul>
+       
       </div>
 
       <!-- Contact Column -->
