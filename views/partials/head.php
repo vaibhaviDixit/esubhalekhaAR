@@ -537,10 +537,10 @@ section:nth-child(3){
     .comment-bubble:nth-child(2) { top: -10%; left: 20%; }
     .comment-bubble:nth-child(3) { top: -17%; left: 67%; }
     .comment-bubble:nth-child(4) { top: 62%; left: 40%; }
-    .comment-bubble:nth-child(5) { top: 45%; left: 75%; }
+    /* .comment-bubble:nth-child(5) { top: 45%; left: 75%; }
     .comment-bubble:nth-child(6) { top: 50%; left: 10%; }
     .comment-bubble:nth-child(7) { top: 90%; left: 30%; }
-    .comment-bubble:nth-child(8) { top: 75%; left: 50%; }
+    .comment-bubble:nth-child(8) { top: 75%; left: 50%; } */
 }
 
 
