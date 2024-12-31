@@ -65,14 +65,14 @@ usort($themeFolders, function($a, $b) {
               <!--   <button class="custom-btn rounded-pill px-4 py-2" style="border: none; background-color: #FFFFFF78; font-size: 14px;">
                     for the moments of life
                 </button> -->
+                <div class="h-4"></div>
 
-                <a href="<?php echo route('themes-invite'); ?>" class="btn order-now-btn">Getting Start</a>
+                <!-- <a href="<?php echo route('themes-invite'); ?>" class="btn order-now-btn">Getting Start</a> -->
 
             </div>
 
-    
             <!-- Title Section -->
-            <div class="col-12 mt-4 text-center">
+            <div class="col-12 mt-5 text-center">
                 <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching Invitation Websites</h2>
             </div>
     
@@ -94,28 +94,28 @@ usort($themeFolders, function($a, $b) {
                                 <div class="card-body" style="margin-top: 10px;">
                                      <h5>₹<?= $theme['price'] ?></h5>
                                     <div class="d-flex align-items-center gap-3">
-                                        <dir style="margin-top: 5px;"><del>₹35</del></dir>
+                                        <div style="margin-top: 5px;"><del>₹35</del></div>
                                         <div class="rounded-pill d-flex align-items-center justify-content-center" style="font-size: 14px; background-color: #494949; color: white; padding: 5px 9px; text-align: center;">45% off</div>
                                     </div>
                                     <div class="card-text mt-3" style="font-size: 14px;"><?= $theme['title'] ?></div>
                                     <div class="card-text" style="font-size: 12px;">by eSubhalekha.com</div>
                                     <div class="d-lg-flex gap-3 mt-1">
 
+                                        <a href="<?= $theme['url'] ?>" target="_blank"  class="btn btn-dark rounded-pill  d-flex  align-items-center justify-content-center" style="font-size: 12px; padding: 5px 9px;">Preview</a>
+
                                           <form  method="POST">
                                         <?php 
                                              $isItemInCart3 = isset($_SESSION['cart']['theme']) && in_array($theme['themeID'], $_SESSION['cart']['theme']);
-                                              if($isItemInCart3){$btn3="Added to cart";}else{$btn3="Add to cart";}
+                                              
                                         ?>
                                     <input type="hidden" name="itemType" value="theme">
                                     <input type="hidden" name="itemID" value="<?= $theme['themeID'] ?>">
 
                                         <button type="submit" name="addToCart" class="btn btn-outline-secondary rounded-pill  d-flex  align-items-center justify-content-center" style="font-size: 12px; padding: 5px 9px; width: 100%;
-    border: 1px solid var(--color-secondary-1);"><?= $btn3; ?></button>
+    border: 1px solid var(--color-secondary-1);">Order Now</button>
                                     </form>
                                        
-
-                                        <a href="<?= route("themes-invite"); ?>" class="btn btn-dark rounded-pill  d-flex  align-items-center justify-content-center" style="font-size: 12px; padding: 5px 9px;">Order now</a>
-                                    </div>
+                                      </div>
                                 </div>
                             </div>
 
@@ -131,62 +131,66 @@ usort($themeFolders, function($a, $b) {
     </section>
     
     
-     <section>
+    <section>
         <div class="E-Shublekha-container mb-4">
-            <h2 class="E-Shublekha-title">OUR PLANS</h2>
+            <h2 class="E-Shublekha-title">Our Plans</h2>
             <div class="E-Shublekha-carousel">
-              <div class="E-Shublekha-card">
-                <div>
-                  <h3>PREMIUM 1</h3>
-                  <p>The ultimate package for grand weddings. Includes premium services and exclusive perks.</p>
+
+                <!-- Plan 1: Short-Term -->
+                <div class="E-Shublekha-card">
+                    <h3>Basic</h3>
+                    <p>★ Boost your wedding’s online presence with ease.
+                        Perfect for short-term exposure to make your big day unforgettable.
+                    </p>
+                    <p>★ Includes a custom wedding website tailored for PR purposes.</p>
+                    <p>★ Active for <strong style="font-size: 1.2rem; color: #d9534f;">1 month</strong> before and <strong style="font-size: 1.2rem; color: #d9534f;">1 month</strong> after your special day.</p>
+                    <p class="fs-4" style="font-size: 1.5rem; font-weight: bold; color: #d9534f;">Rs: <span style="font-family: 'Courier New', Courier, monospace;">999/-</span></p>
                 </div>
-                <div>
-                  <p>Rs:599/-</p>
-                  <button>Buy Now</button>
+
+                <!-- Plan 2: Yearly -->
+                <div class="E-Shublekha-card">
+                    <h3>Luxury</h3>
+                    <p>★ Ideal for couples planning extended celebrations.
+                        Keep the wedding vibes alive long after the day itself!
+                    </p>
+                    <p>★ A beautifully crafted wedding website with robust PR support.</p>
+                    <p>★ Active for <strong style="font-size: 1.2rem; color: #d9534f;">1 year</strong> from the day of your marriage.</p>
+                    <p class="fs-4" style="font-size: 1.5rem; font-weight: bold; color: #d9534f;">Rs: <span style="font-family: 'Courier New', Courier, monospace;">5999/-</span></p>
                 </div>
-              </div>
-              <div class="E-Shublekha-card">
-                <div>
-                  <h3>PREMIUM 2</h3>
-                  <p>The ultimate package for grand weddings. Includes premium services and exclusive perks.</p>
+
+                <!-- Plan 3: Lifetime -->
+                <div class="E-Shublekha-card">
+                    <h3>Premium</h3>
+                    <p>★ Cherish everlasting memories with a lifetime wedding website.
+                        Celebrate your love story with timeless digital elegance.
+                    </p>
+                    <p>★ Includes ongoing PR support to keep your story shining.</p>
+                    <p>★ Active for a <strong style="font-size: 1.2rem; color: #d9534f;">lifetime</strong>, preserving your journey together forever.</p>
+                    <p class="fs-4" style="font-size: 1.5rem; font-weight: bold; color: #d9534f;">Rs: <span style="font-family: 'Courier New', Courier, monospace;">11,999/-</span></p>
                 </div>
-                <div>
-                  <p>Rs:599/-</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="E-Shublekha-card">
-                <div>
-                  <h3>PREMIUM 3</h3>
-                  <p>The ultimate package for grand weddings. Includes premium services and exclusive perks.</p>
-                </div>
-                <div>
-                  <p>Rs:599/-</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
+
             </div>
-          </div>
-          
+        </div>
     </section>
 
+
   <section class="comments-section">
-       <div class="comments-content">
-        <div class="comments-floating">
+  <div class="comments-content ">
+          <div class="comments-floating top-comments">
             <div class="comment-bubble">Great service!</div>
             <div class="comment-bubble">I love this product!</div>
             <div class="comment-bubble">Amazing experience!</div>
             <div class="comment-bubble">Highly recommend!</div>
+          </div>
+          <h2 class="comments-title">They fell in love💗 with our products</h2>
+          <p class="comments-subtitle">Our customers fell in love with personalised products shipped with quality</p>
+          <div class="comments-floating bottom-comments">
+            <div class="comment-bubble">Will definitely come back!</div>
+            <div class="comment-bubble">Fantastic support!</div>
+            <div class="comment-bubble">Very satisfied!</div>
+            <div class="comment-bubble">Best purchase ever!</div>
+          </div>
         </div>
-           <h2 class="comments-title">They fell in love💗 with our products</h2>
-           <p class="comments-subtitle">Our customers fell in love with personalised products shipped with quality</p>
-           <div class="comments-floating">
-               <div class="comment-bubble">Will definitely come back!</div>
-               <div class="comment-bubble">Fantastic support!</div>
-               <div class="comment-bubble">Very satisfied!</div>
-               <div class="comment-bubble">Best purchase ever!</div>
-           </div>
-       </div>
     </section>
   
     <!-- footer -->

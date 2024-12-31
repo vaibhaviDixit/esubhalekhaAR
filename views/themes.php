@@ -48,6 +48,11 @@ usort($themeFolders, function($a, $b) {
         margin-top: 12vh;
         max-height: 100vh !important;
     }
+
+    .timelineDiv .card {
+      width: 300px;
+    }
+
 </style>
 
 <body>
@@ -57,23 +62,23 @@ usort($themeFolders, function($a, $b) {
     <div id="app" class="">
         <!-- main content here -->
 
-<main class="col-md-9 mx-auto col-lg-10 px-md-4 timelineDiv">
+<main class="col-md-9 mx-auto col-lg-10 px-md-4 col-9 pt-2 timelineDiv">
 <!-- <div class="d-flex align-items-center justify-content-center mb-4">
   <a href="<?= route('smart-cards') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">1</a>
   <span class="line"></span>
   <a href="<?= route('ar-invites') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">2</a>
   <span class="line"></span>
-  <a href="<?= route('themes-invite') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary active">3</a>
+  <a href="<?= route('themes') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary active">3</a>
 </div> -->
 
       <!-- Section 3: Website Themes -->
-    <div id="section3" class="timeline-item mb-5">
-        <h3 class="mb-3">Website Themes</h3>
-        <div class="owl-carousel owl-theme timelineProducts">
+    <div id="section3" class="timeline-item">
+          <h1 class="h2">Website Themes</h1>
+        <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
             <?php
             foreach ($websiteThemes as $theme) {
             ?>
-                <div class="item">
+                <div class="themeCard">
                     <div class="card text-center">
                         <img src="<?= themeAssets($theme['folder'], $theme['img']) ?>" alt="<?= $theme['title'] ?>" class="card-img-top">
                         <div class="card-body">

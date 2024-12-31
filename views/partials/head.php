@@ -107,7 +107,7 @@ $(document).ready(function() {
         margin: 20,
         nav: true,
           navText: ["<span class='carousel-control-prev-icon'></span>", "<span class='carousel-control-next-icon'></span>"], 
-        dots: true,
+        dots: false,
         autoplay: true,
         autoplayTimeout: 3000,
         autoplayHoverPause: true
@@ -285,6 +285,26 @@ body {
     transform: scale(1.05);
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    background-size: cover;
+    z-index: 999;
+}
+
+.carousel-control-prev-icon {
+    right: 5px; /* Adjust for padding from the left edge */
+}
+
+.carousel-control-next-icon {
+    left: 5px; /* Adjust for padding from the right edge */
+}
+
+
 .product-image {
     min-height: 150px;
     max-height: 150px;
@@ -352,23 +372,40 @@ body {
     opacity: 0.9; /* Slight transparency */
 }
 
+.top-comments .comment-bubble {
+    animation: move-left-to-right 15s linear infinite;
+}
+
+.bottom-comments .comment-bubble {
+    animation: move-right-to-left 15s linear infinite;
+}
+
 /* Random positions for each comment bubble */
-.comment-bubble:nth-child(1) { top: 45%; left: 5%; }
+.comment-bubble:nth-child(1) { top: 45%; right: 87%;  }
 .comment-bubble:nth-child(2) { top: 20%; left: 30%; }
 .comment-bubble:nth-child(3) { top: 40%; left: 70%; }
 .comment-bubble:nth-child(4) { top: 50%; left: 50%; }
-.comment-bubble:nth-child(5) { top: 30%; left: 100%; }
+/* .comment-bubble:nth-child(5) { top: 30%; left: 100%;}
 .comment-bubble:nth-child(6) { top: 60%; left: 20%; }
 .comment-bubble:nth-child(7) { top: 70%; left: 40%; }
-.comment-bubble:nth-child(8) { top: 80%; left: 60%; }
+.comment-bubble:nth-child(8) { top: 80%; left: 60%; } */
 
 /* Floating Animation */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
+@keyframes move-left-to-right {
+    0% {
+        transform: translateX(-600%);
     }
-    50% {
-        transform: translateY(-10px);
+    100% {
+        transform: translateX(400%);
+    }
+}
+
+@keyframes move-right-to-left {
+    0% {
+        transform: translateX(520%);
+    }
+    100% {
+        transform: translateX(-520%);
     }
 }
 
@@ -520,10 +557,10 @@ section:nth-child(3){
     .comment-bubble:nth-child(2) { top: -10%; left: 20%; }
     .comment-bubble:nth-child(3) { top: -17%; left: 67%; }
     .comment-bubble:nth-child(4) { top: 62%; left: 40%; }
-    .comment-bubble:nth-child(5) { top: 45%; left: 75%; }
+    /* .comment-bubble:nth-child(5) { top: 45%; left: 75%; }
     .comment-bubble:nth-child(6) { top: 50%; left: 10%; }
     .comment-bubble:nth-child(7) { top: 90%; left: 30%; }
-    .comment-bubble:nth-child(8) { top: 75%; left: 50%; }
+    .comment-bubble:nth-child(8) { top: 75%; left: 50%; } */
 }
 
 
@@ -798,4 +835,3 @@ if (isset($_REQUEST['removeFromCart'])) {
 
 
 ?>
-

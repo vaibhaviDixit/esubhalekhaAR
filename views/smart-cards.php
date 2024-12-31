@@ -33,7 +33,7 @@ $gallery = new Gallery();
   <span class="line"></span>
   <a href="<?= route('ar-invites') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">2</a>
   <span class="line"></span>
-  <a href="<?= route('themes-invite') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">3</a>
+  <a href="<?= route('themes') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">3</a>
 </div>
 
 

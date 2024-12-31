@@ -1,5 +1,16 @@
 <?php 
 
+require('views/partials/dashboard/tracks.php');
+
+if (isset($_REQUEST['id']) && isset($_REQUEST['lang'])){
+
+    $canEdit = $wedding->userHasWedding($_REQUEST['id'], $_REQUEST['lang'],App::getUser()['userID']);
+    if(!$canEdit){
+        redirect("dashboard");
+    }
+
+}
+
 ?>
 <!doctype html>
 <html lang="en">

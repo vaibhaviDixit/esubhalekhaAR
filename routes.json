@@ -35,14 +35,8 @@
   "ar": {
     "path": "views/ar.php"
   },
-  "themes/{category}": {
-    "path": "views/themes/category.php"
-  },
-  "themes/{category}/{id}": {
-    "path": "views/themes/theme.php"
-  },
-  "templates/Royal-Bramhin": {
-    "path": "views/templates/Royal-Bramhin/index.php"
+  "themes": {
+    "path": "views/themes.php"
   },
   "login": {
     "path" : "views/auth/login.php"
@@ -52,9 +46,6 @@
   },
   "register": {
     "path": "views/auth/register.php"
-  },
-  "themes-invite": {
-    "path": "views/themes.php"
   },
   "order": {
     "path": "views/order.php"

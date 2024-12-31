@@ -57,13 +57,7 @@ $wedding = new Wedding();
         </a>
       </li>
 
-        <li class="nav-item my-2">
-        <a class="nav-link users" aria-current="page" href="<?php echo route('users'); ?>">
-          <i class="bi bi-people"></i>
-          Users
-        </a>
-      </li>
-
+  
        <!--  <li class="nav-item my-2">
         <a class="nav-link smartcards" aria-current="page" href="<?php echo route('smartcards'); ?>">
          <i class="bi bi-envelope-paper-heart-fill"></i>
@@ -77,12 +71,26 @@ $wedding = new Wedding();
           AR Invites
         </a>
       </li>
- -->
+ -->  
+      <li class="nav-item my-2">
+        <a class="nav-link myorders" aria-current="page" href="<?php echo route('myorders'); ?>">
+          <i class="bi bi-bag-check-fill"></i>
+          My Orders
+        </a>
+      </li>
+
+      <li class="nav-item my-2">
+        <a class="nav-link users" aria-current="page" href="<?php echo route('users'); ?>">
+          <i class="bi bi-people"></i>
+          Users
+        </a>
+      </li>
+
 
        <li class="nav-item my-2">
         <a class="nav-link orders" aria-current="page" href="<?php echo route('orders'); ?>">
           <i class="bi bi-bag-check-fill"></i>
-          Orders
+          All Orders
         </a>
       </li>
 
@@ -133,11 +141,20 @@ $wedding = new Wedding();
 
       </li>
 
-       <li class="nav-item my-2">
+    
+      <li class="nav-item my-2">
+        <a class="nav-link myorders text-white" aria-current="page" href="<?php echo route('myorders'); ?>">
+          <i class="bi bi-bag-check-fill"></i>
+          My Orders
+        </a>
+      </li>
+
+        <li class="nav-item my-2">
         <a class="nav-link users text-white" aria-current="page" href="<?php echo route('users'); ?>">
           <i class="bi bi-people"></i> <span class="menu-text ms-2">Users</span>
         </a>
       </li>
+
 
 
      <!--    <li class="nav-item my-2">
@@ -156,7 +173,7 @@ $wedding = new Wedding();
 
        <li class="nav-item my-2">
         <a class="nav-link orders text-white" aria-current="page" href="<?php echo route('orders'); ?>">
-          <i class="bi bi-bag-check-fill"></i> <span class="menu-text ms-2">Orders</span>
+          <i class="bi bi-bag-check-fill"></i> <span class="menu-text ms-2">All Orders</span>
         </a>
       </li>
 
@@ -232,6 +249,11 @@ $wedding = new Wedding();
       case "<?php echo !empty($config['APP_SLUG']) ? '/' . $config['APP_SLUG'] . "/dashboard" : "/dashboard" ?>":
       document.querySelector(".dashboard").classList.toggle("active");
       document.querySelector(".offcanvas-body .dashboard").classList.toggle("active");
+      break;
+
+      case "<?php echo !empty($config['APP_SLUG']) ? '/' . $config['APP_SLUG'] . "/myorders" : "/myorders" ?>":
+      document.querySelector(".myorders").classList.toggle("active");
+      document.querySelector(".offcanvas-body .myorders").classList.toggle("active");
       break;
 
       case "<?php echo !empty($config['APP_SLUG']) ? '/' . $config['APP_SLUG'] . "/users" : "/users" ?>":

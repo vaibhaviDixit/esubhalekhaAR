@@ -8,7 +8,7 @@ include("views/partials/head.php");
 // print_r($_SESSION);
 if(count($_SESSION['cart']['smartCard']) == 0 && count($_SESSION['cart']['ARInvite']) == 0 && count($_SESSION['cart']['theme']) == 0  ){
 
-    redirect("themes-invite");
+    redirect("themes");
 }
 
 DB::connect();
@@ -165,7 +165,7 @@ $totalPrice = $cart['smartCards']['totalPrice'] + $cart['arInvites']['price'] + 
     <div id="app" class="">
         <!-- main content here -->
 
-    <main class="col-md-9 mx-auto col-lg-10 col-9 px-md-4 pt-5">
+    <main class="col-md-9 mx-auto col-lg-10 col-9 px-md-4 pt-2">
 
     <h1 class="h2">Order Summary</h1>
 
@@ -279,7 +279,7 @@ const dateError = document.getElementById("dateError");
 
 let nameE = true;
 let phoneE = true;
-let dateE = true;
+let dateE = false;
 
 let nameTouched = false;
 let phoneTouched = false;

@@ -56,6 +56,16 @@ class Wedding
         return $result;
     }
 
+    public function userHasWedding($weddingID, $lang,$userID)
+    {
+        DB::connect();
+        $result = DB::count('weddings', "weddingID = '$weddingID' AND lang = '$lang' AND host = '$userID' ");
+        DB::close();
+        
+        return $result ? true : false;
+    }
+
+
     // Create operation
     public function create(array $data)
     {

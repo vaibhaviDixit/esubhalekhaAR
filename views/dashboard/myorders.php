@@ -211,6 +211,10 @@ $userOrders = $orderController->getOrdersByUser($suerID);
 
                     </tr>
                 <?php }
+                }else{
+                    ?>
+                 <tr> <td colspan="7" class="text-center fw-bold"> No orders found! <br> <a href="<?php echo route("themes"); ?>" class="btn btn-primary btn-sm"> Explore Themes</a> </td> </tr>
+                    <?php
                 } ?>
 
             </tbody>

@@ -3,8 +3,6 @@
 
 $currentEMail = App::getUser()['email'];
 
-require('views/partials/dashboard/tracks.php');
-
 ?>
 
  <style>
@@ -70,6 +68,14 @@ require('views/partials/dashboard/tracks.php');
           <i class="bi bi-house-door"></i> Dashboard
         </a>
       </li>
+
+       <li class="nav-item my-2">
+        <a class="nav-link myorders" aria-current="page" href="<?php echo route('myorders'); ?>">
+          <i class="bi bi-bag-check-fill"></i>
+          My Orders
+        </a>
+      </li>
+
 
 
       <?php if (isset($_REQUEST['id']) && isset($_REQUEST['lang'])): ?>
@@ -146,6 +152,14 @@ require('views/partials/dashboard/tracks.php');
           <i class="bi bi-house-door"></i> <span class="menu-text ms-2">Dashboard</span>
         </a>
 
+      </li>
+
+
+       <li class="nav-item my-2">
+        <a class="nav-link myorders text-white" aria-current="page" href="<?php echo route('myorders'); ?>">
+          <i class="bi bi-bag-check-fill"></i>
+          My Orders
+        </a>
       </li>
       
 

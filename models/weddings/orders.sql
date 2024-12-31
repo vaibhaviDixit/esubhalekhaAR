@@ -4,7 +4,7 @@ CREATE TABLE orders (
     cart JSON,
     offer VARCHAR(255),
     totalAmount DECIMAL(10, 2),
-    eventDate DATE NOT NULL,
+    eventDate DATE,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (userID) REFERENCES users(userID),

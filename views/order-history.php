@@ -52,11 +52,11 @@ $userOrders = $order->getOrdersByUser($userID);
 
     <div id="app" class="">
         <!-- main content here -->
-        <main class="col-md-9 mx-auto col-lg-10 px-md-4 col-9">
+        <main class="col-md-9 mx-auto col-lg-10 px-md-4 col-9 pt-2">
 
              <h1 class="h2">Order History</h1>
             
-             <div style="padding-bottom: 20px;">
+             <div class="mt-4" style="padding-bottom: 20px;">
 
               <?php
                 foreach ($userOrders as $orderKey => $orderValue) {

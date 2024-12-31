@@ -33,7 +33,7 @@ $gallery = new Gallery();
   <span class="line"></span>
   <a href="<?= route('ar-invites') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary active">2</a>
   <span class="line"></span>
-  <a href="<?= route('themes-invite') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">3</a>
+  <a href="<?= route('themes') ?>" class="btn timelineBtn btn-primary rounded-circle text-secondary">3</a>
 </div>
 
     <!-- Section 2: AR Invites -->
@@ -103,7 +103,7 @@ $gallery = new Gallery();
             <form>
                 <button type="submit" name="removeFromCart" value="ARInvite" class="btn btn-secondary mt-3">Skip</button>
             </form>
-            <a href="<?= route('themes-invite') ?>" class="btn btn-primary mt-3">Continue</a>
+            <a href="<?= route('themes') ?>" class="btn btn-primary mt-3">Continue</a>
         </div>
 
     </div>
