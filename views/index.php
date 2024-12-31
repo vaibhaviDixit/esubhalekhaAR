@@ -73,7 +73,7 @@ usort($themeFolders, function($a, $b) {
 
             <!-- Title Section -->
             <div class="col-12 mt-5 text-center">
-                <span class="fw-bold section-title badge rounded-pill bg-primary mb-4" style="font-size: 1.8rem;">For the moments of life</span>
+                <span class="fw-bold for-moment section-title badge rounded-pill mb-4" style="font-size: 1.8rem;">For the moments of life</span>
                 <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching Invitation Websites</h2>
             </div>
     
@@ -129,50 +129,43 @@ usort($themeFolders, function($a, $b) {
                     </div>
         </div>
     </section>
-    <button class="fw-bold view-theme badge rounded-pill bg-primary position-relative my-3" style="font-size: 1.8rem;">View all themes</button>
+    <button class="fw-bold view-theme badge rounded-pill bg-primary position-relative my-3">View all themes</button>
                     
     
     <section>
         <div class="E-Shublekha-container mb-4">
             <h2 class="E-Shublekha-title">Our Plans</h2>
-            <div class="E-Shublekha-carousel">
-
-                <!-- Plan 1: Short-Term -->
-                <div class="E-Shublekha-card">
-                    <h3>Basic</h3>
-                    <p>★ Boost your wedding’s online presence with ease.
-                        Perfect for short-term exposure to make your big day unforgettable.
-                    </p>
-                    <p>★ Includes a custom wedding website tailored for PR purposes.</p>
-                    <p>★ Active for <strong style="font-size: 1.2rem; color: #d9534f;">1 month</strong> before and <strong style="font-size: 1.2rem; color: #d9534f;">1 month</strong> after your special day.</p>
-                    <p class="fs-4" style="font-size: 1.5rem; font-weight: bold; color: #d9534f;">Rs: <span style="font-family: 'Courier New', Courier, monospace;">999/-</span></p>
+            <div class="E-Shublekha-carousel-wrapper">
+                <button class="carousel-nav prev hidden" aria-label="Previous">‹</button>
+                <div class="E-Shublekha-carousel">
+                    <!-- Plan Cards -->
+                    <div class="E-Shublekha-card">
+                        <h3>Basic</h3>
+                        <p>★ Boost your wedding’s online presence with ease...</p>
+                        <p>★ Includes a custom wedding website...</p>
+                        <p>★ Active for <strong>1 month</strong>...</p>
+                        <p class="fs-4">Rs: <span>999/-</span></p>
+                    </div>
+                    <div class="E-Shublekha-card">
+                        <h3>Luxury</h3>
+                        <p>★ Ideal for couples planning extended celebrations...</p>
+                        <p>★ A beautifully crafted wedding website...</p>
+                        <p>★ Active for <strong>1 year</strong>...</p>
+                        <p class="fs-4">Rs: <span>5999/-</span></p>
+                    </div>
+                    <div class="E-Shublekha-card">
+                        <h3>Premium</h3>
+                        <p>★ Cherish everlasting memories...</p>
+                        <p>★ Includes ongoing PR support...</p>
+                        <p>★ Active for a <strong>lifetime</strong>...</p>
+                        <p class="fs-4">Rs: <span>11,999/-</span></p>
+                    </div>
                 </div>
-
-                <!-- Plan 2: Yearly -->
-                <div class="E-Shublekha-card">
-                    <h3>Luxury</h3>
-                    <p>★ Ideal for couples planning extended celebrations.
-                        Keep the wedding vibes alive long after the day itself!
-                    </p>
-                    <p>★ A beautifully crafted wedding website with robust PR support.</p>
-                    <p>★ Active for <strong style="font-size: 1.2rem; color: #d9534f;">1 year</strong> from the day of your marriage.</p>
-                    <p class="fs-4" style="font-size: 1.5rem; font-weight: bold; color: #d9534f;">Rs: <span style="font-family: 'Courier New', Courier, monospace;">5999/-</span></p>
-                </div>
-
-                <!-- Plan 3: Lifetime -->
-                <div class="E-Shublekha-card">
-                    <h3>Premium</h3>
-                    <p>★ Cherish everlasting memories with a lifetime wedding website.
-                        Celebrate your love story with timeless digital elegance.
-                    </p>
-                    <p>★ Includes ongoing PR support to keep your story shining.</p>
-                    <p>★ Active for a <strong style="font-size: 1.2rem; color: #d9534f;">lifetime</strong>, preserving your journey together forever.</p>
-                    <p class="fs-4" style="font-size: 1.5rem; font-weight: bold; color: #d9534f;">Rs: <span style="font-family: 'Courier New', Courier, monospace;">11,999/-</span></p>
-                </div>
-
+                <button class="carousel-nav next hidden" aria-label="Next">›</button>
             </div>
         </div>
     </section>
+
 
 
     <section class="e-Subhalekha-comments-section">

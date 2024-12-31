@@ -132,37 +132,37 @@ $(document).ready(function() {
         navbar.classList.toggle('show');
     }
 
-    // Card Swipe Cycle Animation
-    class CardSwipeCycle {
-        constructor(cardStack) {
-            this.cardStack = cardStack;
-            this.cards = Array.from(cardStack.children);
-            this.currentIndex = 0;
-            this.startAnimation();
-        }
+    // // Card Swipe Cycle Animation
+    // class CardSwipeCycle {
+    //     constructor(cardStack) {
+    //         this.cardStack = cardStack;
+    //         this.cards = Array.from(cardStack.children);
+    //         this.currentIndex = 0;
+    //         this.startAnimation();
+    //     }
 
-        startAnimation() {
-            console.log('Start animation');
-            this.animateNextCard();
-        }
+    //     startAnimation() {
+    //         console.log('Start animation');
+    //         this.animateNextCard();
+    //     }
 
-        animateNextCard() {
-            // Remove active and swipe classes
-            this.cards.forEach(card => card.classList.remove('active', 'swipe-left'));
+    //     animateNextCard() {
+    //         // Remove active and swipe classes
+    //         this.cards.forEach(card => card.classList.remove('active', 'swipe-left'));
 
-            const currentCard = this.cards[this.currentIndex];
-            currentCard.classList.add('active');
+    //         const currentCard = this.cards[this.currentIndex];
+    //         currentCard.classList.add('active');
 
-            setTimeout(() => {
-                currentCard.classList.add('swipe-left');
-                setTimeout(() => {
-                    this.cardStack.appendChild(currentCard);
-                    this.currentIndex = (this.currentIndex + 1) % this.cards.length;
-                    setTimeout(() => this.animateNextCard(), 500);
-                }, 700);
-            }, 2000);
-        }
-    }
+    //         setTimeout(() => {
+    //             currentCard.classList.add('swipe-left');
+    //             setTimeout(() => {
+    //                 this.cardStack.appendChild(currentCard);
+    //                 this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+    //                 setTimeout(() => this.animateNextCard(), 500);
+    //             }, 700);
+    //         }, 2000);
+    //     }
+    // }
 
     // Initialize Card Swipe Cycle
     // const cardStack = document.querySelector('.cards-container');
@@ -175,50 +175,51 @@ $(document).ready(function() {
 
     const carousel = document.querySelector('.E-Shublekha-carousel');
     const cards = document.querySelectorAll('.E-Shublekha-card');
-
-    // Clone cards for infinite scrolling
-    function cloneCardsForInfiniteScroll() {
-      cards.forEach((card) => {
-        const clone = card.cloneNode(true);
-        carousel.appendChild(clone);
-      });
-    }
-
-    // Function to scroll automatically
+    const prevButton = document.querySelector('.carousel-nav.prev');
+    const nextButton = document.querySelector('.carousel-nav.next');
     let scrollAmount = 0;
-    let scrollAnimationFrame;
-    const scrollSpeed = 0.5;
-
-    function autoScroll() {
-      if (window.innerWidth < 768) {  // Only apply auto-scrolling for widths < 768px
-        scrollAmount += scrollSpeed; // Increment scroll position
-        carousel.scrollLeft = scrollAmount;
-
-        // Reset scroll position for infinite effect
-        if (scrollAmount >= carousel.scrollWidth / 2) {
-          scrollAmount = 0;
+    const cardWidth = cards[0].offsetWidth + 16; // Card width including margin
+    
+    // Manual navigation for small screens
+    function manualCarousel(direction) {
+        const visibleCards = window.innerWidth < 480 ? 1 : 2; // 1 card <480px, 2 cards 480-768px
+        const scrollStep = cardWidth * visibleCards;
+    
+        if (direction === 'prev') {
+            scrollAmount = Math.max(0, scrollAmount - scrollStep); // Prevent negative scroll
+        } else if (direction === 'next') {
+            scrollAmount = Math.min(
+                carousel.scrollWidth - carousel.offsetWidth,
+                scrollAmount + scrollStep
+            ); // Prevent scrolling beyond content
         }
-
-        scrollAnimationFrame = requestAnimationFrame(autoScroll);
-      }
+    
+        carousel.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
     }
-
-    // Initialize auto-scrolling for small screen sizes
+    
+    // Attach event listeners to buttons
+    prevButton.addEventListener('click', () => manualCarousel('prev'));
+    nextButton.addEventListener('click', () => manualCarousel('next'));
+    
+    // Initialize carousel for small screens
     function initCarousel() {
-      if (window.innerWidth < 768) {
-        cloneCardsForInfiniteScroll(); // Clone cards only for small screens
-        autoScroll(); // Start auto-scrolling
-      } else {
-        // Stop auto-scrolling for large screens
-        cancelAnimationFrame(scrollAnimationFrame); // Stop the animation if screen is > 768px
-      }
+        if (window.innerWidth < 768) {
+            prevButton.classList.remove('hidden');
+            nextButton.classList.remove('hidden');
+            scrollAmount = 0; // Reset scroll position
+        } else {
+            prevButton.classList.add('hidden');
+            nextButton.classList.add('hidden');
+        }
     }
-
-    // Initialize or reset carousel on window resize
+    
+    // Update carousel on resize
     window.addEventListener('resize', initCarousel);
-
-    // Initialize carousel on page load
     initCarousel();
+
 
 
 
@@ -619,13 +620,59 @@ section:nth-child(3){
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
+/* Carousel wrapper for navigation buttons */
+.E-Shublekha-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Navigation buttons */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-nav.prev {
+    left: 1px;
+}
+
+.carousel-nav.next {
+    right: 1px;
+}
+
+/* Hide buttons on larger screens */
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hidden {
+        display: flex;
+    }
+}
+
+
 /* Adjust layout for tablets (480px to 768px) */
 @media (max-width: 768px) {
   .E-Shublekha-card {
     flex: 0 0 calc(100% / 2 - 16px); /* 2 cards visible */
   }
   .view-theme{
-    right: 80vw;
+    left: 37vw;
+    font-size: 1.4rem;
   }  
 }
 
@@ -637,17 +684,22 @@ section:nth-child(3){
 
   }
   .view-theme{
-    left: 17vw;
+    left: 30vw;
+    font-size: 1rem;
   }  
 }
 
 @media (min-width: 768px){
 .view-theme{
     left: 43vw;
+    font-size: 1.8rem;
   } 
 }   
       
-  
+.for-moment{
+    background: #f3e6e2;
+    color: #595959;
+}
 
 /* for arinvites, smartcards and themes*/
 
@@ -668,6 +720,7 @@ section:nth-child(3){
     justify-content: center;
     align-items: center;
 }
+
 .timelineDiv .timelineBtn.active {
   background-color: var(--color-secondary-1) !important; 
   color: var(--color-primary-1) !important;
@@ -766,10 +819,21 @@ section:nth-child(3){
 
 .e-Subhalekha-top-comments {
   animation-name: scroll-left-to-right; /* Top comments scroll left to right */
+  animation-duration: var(--scroll-speed, 10s); /* Use custom property for speed */
 }
 
 .e-Subhalekha-bottom-comments {
   animation-name: scroll-right-to-left; /* Bottom comments scroll right to left */
+  animation-duration: var(--scroll-speed, 10s); /* Use custom property for speed */
+}
+
+@keyframes scroll-left-to-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 
 .e-Subhalekha-comment-bubble {
