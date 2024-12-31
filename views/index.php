@@ -61,7 +61,7 @@ usort($themeFolders, function($a, $b) {
     <section class="mt-5 container">
         <div class="row">
             <!-- Button Section -->
-            <div class="col-12 d-flex justify-content-center mt-2">
+            <div class="col-12 d-flex justify-content-center mt-2 center-container">
               <!--   <button class="custom-btn rounded-pill px-4 py-2" style="border: none; background-color: #FFFFFF78; font-size: 14px;">
                     for the moments of life
                 </button> -->
@@ -73,6 +73,7 @@ usort($themeFolders, function($a, $b) {
 
             <!-- Title Section -->
             <div class="col-12 mt-5 text-center">
+                <span class="fw-bold section-title badge rounded-pill bg-primary mb-4" style="font-size: 1.8rem;">For the moments of life</span>
                 <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching Invitation Websites</h2>
             </div>
     
@@ -125,11 +126,11 @@ usort($themeFolders, function($a, $b) {
                             
                         </div>
     
-                      
                     </div>
         </div>
     </section>
-    
+    <button class="fw-bold view-theme badge rounded-pill bg-primary position-relative my-3" style="font-size: 1.8rem;">View all themes</button>
+                    
     
     <section>
         <div class="E-Shublekha-container mb-4">
@@ -174,24 +175,25 @@ usort($themeFolders, function($a, $b) {
     </section>
 
 
-  <section class="comments-section">
-  <div class="comments-content ">
-          <div class="comments-floating top-comments">
-            <div class="comment-bubble">Great service!</div>
-            <div class="comment-bubble">I love this product!</div>
-            <div class="comment-bubble">Amazing experience!</div>
-            <div class="comment-bubble">Highly recommend!</div>
-          </div>
-          <h2 class="comments-title">They fell in love💗 with our products</h2>
-          <p class="comments-subtitle">Our customers fell in love with personalised products shipped with quality</p>
-          <div class="comments-floating bottom-comments">
-            <div class="comment-bubble">Will definitely come back!</div>
-            <div class="comment-bubble">Fantastic support!</div>
-            <div class="comment-bubble">Very satisfied!</div>
-            <div class="comment-bubble">Best purchase ever!</div>
-          </div>
+    <section class="e-Subhalekha-comments-section">
+      <div class="e-Subhalekha-comments-content">
+        <div class="e-Subhalekha-comments-floating e-Subhalekha-top-comments">
+          <div class="e-Subhalekha-comment-bubble">Great service!</div>
+          <div class="e-Subhalekha-comment-bubble">I love this product!</div>
+          <div class="e-Subhalekha-comment-bubble d-none d-sm-block">Amazing experience!</div>
+          <div class="e-Subhalekha-comment-bubble d-none d-sm-block">Highly recommend!</div>
         </div>
+        <h2 class="e-Subhalekha-comments-title">They fell in love💗 with our products</h2>
+        <p class="e-Subhalekha-comments-subtitle">Our customers fell in love with personalised products shipped with quality</p>
+        <div class="e-Subhalekha-comments-floating e-Subhalekha-bottom-comments">
+          <div class="e-Subhalekha-comment-bubble d-none d-sm-block">Will definitely come back!</div>
+          <div class="e-Subhalekha-comment-bubble">Fantastic support!</div>
+          <div class="e-Subhalekha-comment-bubble">Very satisfied!</div>
+          <div class="e-Subhalekha-comment-bubble d-none d-sm-block">Best purchase ever!</div>
+        </div>
+      </div>
     </section>
+
   
     <!-- footer -->
     <?php include('views/partials/footer.php'); ?> 
