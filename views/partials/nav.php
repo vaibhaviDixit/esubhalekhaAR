@@ -2,10 +2,11 @@
     <div class="h-2">. </div>
     <div class="d-flex justify-content-center">
         <nav class="navbar navbar-expand-lg navbar-light blur-background main-navbar py-2"
-            style="width:80vw; background-color: rgba(255, 255, 255, 0.7); backdrop-filter: blur(3px);">
+            style="width:80vw; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(2px); border-radius:15px">
             
             <a href="<?= route("/"); ?>">
                 <img src="<?php assets('img/eSubhalekha.png') ?>" alt="logo" style="width: 40px; height: 40px; margin-top: -4px;" />
+                E-Subhlekha
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

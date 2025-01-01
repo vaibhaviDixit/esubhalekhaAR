@@ -134,9 +134,9 @@ usort($themeFolders, function($a, $b) {
     
     <section>
         <div class="E-Shublekha-container mb-4">
-            <h2 class="E-Shublekha-title">Our Plans</h2>
+            <h2 class="E-Shublekha-title">Pricing</h2>
             <div class="E-Shublekha-carousel-wrapper">
-                <i class='bi bi-arrow-right-circle-fill carousel-nav next hidden'></i>
+                <i class='bi bi-arrow-right-circle-fill carousel-nav next hidden e-subhalekha-next'></i>
                 <div class="E-Shublekha-carousel">
                     <!-- Plan Cards -->
                     <div class="E-Shublekha-card">

@@ -100,7 +100,7 @@ $(document).ready(function() {
     var owlSettings = {
         responsive: {
             0: { items: 1 },
-            770: { items: 2 },
+            480: {items: 2},
             1310: { items: 3 }
         },
         loop: true,
@@ -321,15 +321,17 @@ body {
 }
 
 @media (max-width: 480px){
-    /* .next{
-        right:10vw;
-    } */
-}
-@media (max-width: 768px){
-    .next{
-        left:89vw;
+    .e-subhalekha-next{
+        left:79vw;
     }
 }
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .e-subhalekha-next {
+        left: 86vw;
+    }
+}
+
 
 
 .product-image {
@@ -474,7 +476,7 @@ section:nth-child(3){
     .navbar-toggler {
         border: none;
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 0 15px 15px 0;
     }
 
     .navbar-toggler:focus {
@@ -482,7 +484,7 @@ section:nth-child(3){
     }
 
     /* Navbar Collapse Adjustments */
-    .navbar-collapse {
+    .navbar-collapse .navbar-expand-lg {
         text-align: left; /* left the nav links */
         border-radius: 0 15px 15px 0;
     }
