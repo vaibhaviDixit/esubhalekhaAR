@@ -132,37 +132,37 @@ $(document).ready(function() {
         navbar.classList.toggle('show');
     }
 
-    // Card Swipe Cycle Animation
-    class CardSwipeCycle {
-        constructor(cardStack) {
-            this.cardStack = cardStack;
-            this.cards = Array.from(cardStack.children);
-            this.currentIndex = 0;
-            this.startAnimation();
-        }
+    // // Card Swipe Cycle Animation
+    // class CardSwipeCycle {
+    //     constructor(cardStack) {
+    //         this.cardStack = cardStack;
+    //         this.cards = Array.from(cardStack.children);
+    //         this.currentIndex = 0;
+    //         this.startAnimation();
+    //     }
 
-        startAnimation() {
-            console.log('Start animation');
-            this.animateNextCard();
-        }
+    //     startAnimation() {
+    //         console.log('Start animation');
+    //         this.animateNextCard();
+    //     }
 
-        animateNextCard() {
-            // Remove active and swipe classes
-            this.cards.forEach(card => card.classList.remove('active', 'swipe-left'));
+    //     animateNextCard() {
+    //         // Remove active and swipe classes
+    //         this.cards.forEach(card => card.classList.remove('active', 'swipe-left'));
 
-            const currentCard = this.cards[this.currentIndex];
-            currentCard.classList.add('active');
+    //         const currentCard = this.cards[this.currentIndex];
+    //         currentCard.classList.add('active');
 
-            setTimeout(() => {
-                currentCard.classList.add('swipe-left');
-                setTimeout(() => {
-                    this.cardStack.appendChild(currentCard);
-                    this.currentIndex = (this.currentIndex + 1) % this.cards.length;
-                    setTimeout(() => this.animateNextCard(), 500);
-                }, 700);
-            }, 2000);
-        }
-    }
+    //         setTimeout(() => {
+    //             currentCard.classList.add('swipe-left');
+    //             setTimeout(() => {
+    //                 this.cardStack.appendChild(currentCard);
+    //                 this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+    //                 setTimeout(() => this.animateNextCard(), 500);
+    //             }, 700);
+    //         }, 2000);
+    //     }
+    // }
 
     // Initialize Card Swipe Cycle
     // const cardStack = document.querySelector('.cards-container');
@@ -173,38 +173,54 @@ $(document).ready(function() {
     //     console.error('Card stack not found in the DOM.');
     // }
 
+    const carousel = document.querySelector('.E-Shublekha-carousel');
     const cards = document.querySelectorAll('.E-Shublekha-card');
-    let currentIndex = 0;
-
-    // Function to update card positions
-    function updateCards() {
-      cards.forEach((card, index) => {
-        card.classList.remove('active', 'next', 'previous');
-        if (index === currentIndex) {
-          card.classList.add('active');
-        } else if (index === (currentIndex + 1) % cards.length) {
-          card.classList.add('next');
-        } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
-          card.classList.add('previous');
+    const prevButton = document.querySelector('.carousel-nav.prev');
+    const nextButton = document.querySelector('.carousel-nav.next');
+    let scrollAmount = 0;
+    const cardWidth = cards[0].offsetWidth + 16; // Card width including margin
+    
+    // Manual navigation for small screens
+    function manualCarousel(direction) {
+        const visibleCards = window.innerWidth < 480 ? 1 : 2; // 1 card <480px, 2 cards 480-768px
+        const scrollStep = cardWidth * visibleCards;
+    
+        if (direction === 'prev') {
+            scrollAmount = Math.max(0, scrollAmount - scrollStep); // Prevent negative scroll
+        } else if (direction === 'next') {
+            scrollAmount = Math.min(
+                carousel.scrollWidth - carousel.offsetWidth,
+                scrollAmount + scrollStep
+            ); // Prevent scrolling beyond content
         }
-      });
-    }
-
-    // Check screen width and add event listeners only for width >= 480px
-    if (window.innerWidth >= 480) {
-      cards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-          currentIndex = index;
-          updateCards();
+    
+        carousel.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
         });
-      });
-
-      // Initialize the cards
-      updateCards();
-    } else {
-      // Optional: Add behavior for smaller screens, if needed
-      console.log('Width less than 480px: Carousel functionality disabled.');
     }
+    
+    // Attach event listeners to buttons
+    prevButton.addEventListener('click', () => manualCarousel('prev'));
+    nextButton.addEventListener('click', () => manualCarousel('next'));
+    
+    // Initialize carousel for small screens
+    function initCarousel() {
+        if (window.innerWidth < 768) {
+            prevButton.classList.remove('hidden');
+            nextButton.classList.remove('hidden');
+            scrollAmount = 0; // Reset scroll position
+        } else {
+            prevButton.classList.add('hidden');
+            nextButton.classList.add('hidden');
+        }
+    }
+    
+    // Update carousel on resize
+    window.addEventListener('resize', initCarousel);
+    initCarousel();
+
+
 
 
 
@@ -329,7 +345,7 @@ body {
 }
 
 /* Comments Section Styles */
-.comments-section {
+comments-section {
     width: 100%;
     background-color: #404040;
     padding: 40px 20px;
@@ -456,7 +472,8 @@ section:nth-child(3){
 
     /* Navbar Collapse Adjustments */
     .navbar-collapse {
-        text-align: center; /* Center the nav links */
+        text-align: left; /* left the nav links */
+        border-radius: 0 15px 15px 0;
     }
 
     .navbar-nav {
@@ -477,9 +494,10 @@ section:nth-child(3){
         color: #ff5e63;
     }
 
-    .order-now-btn {
-        margin-top: 10px; /* Add margin for spacing */
+    .navbar{
+        border-radius: 13px 15px 15px 13px;
     }
+
 
     .custom-card.active {
         transform: translateY(-60px) scale(1.05) rotate(0deg) !important;
@@ -564,145 +582,124 @@ section:nth-child(3){
 }
 
 
-   .E-Shublekha-container {
-      width: 100%;
-      padding: 24px;
-      box-sizing: border-box;
-      text-align: center;
+.E-Shublekha-container {
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.E-Shublekha-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.E-Shublekha-carousel {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  overflow: hidden; /* Hide the overflow to create a clean infinite effect */
+}
+
+.E-Shublekha-card {
+  flex: 0 0 calc(100% / 3 - 16px); /* Default: 3 cards visible */
+  margin: 0 8px;
+  background: rgba(255, 255, 255, 0.8); /* Slight transparency */
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  scroll-snap-align: center; /* Snap card to center */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Carousel wrapper for navigation buttons */
+.E-Shublekha-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Navigation buttons */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-nav.prev {
+    left: 1px;
+}
+
+.carousel-nav.next {
+    right: 1px;
+}
+
+/* Hide buttons on larger screens */
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hidden {
+        display: flex;
     }
+}
 
-    .E-Shublekha-title {
-      font-size: 2rem;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
 
-    .E-Shublekha-carousel {
-      position: relative;
-      max-width: 1000px;
-      margin: 0 auto;
-      height: 500px;
-      /* overflow: hidden; */
-      display: flex;
-      justify-content: center;
-    }
+/* Adjust layout for tablets (480px to 768px) */
+@media (max-width: 768px) {
+  .E-Shublekha-card {
+    flex: 0 0 calc(100% / 2 - 16px); /* 2 cards visible */
+  }
+  .view-theme{
+    left: 37vw;
+    font-size: 1.4rem;
+  }  
+}
 
-    .E-Shublekha-card {
-      position: absolute;
-      top: 0;
-      width: calc(100% / 3 - 2rem);
-      margin: 0 16px;
-      background: rgba(255, 255, 255); 
-      /*background: green;*/
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.5s ease-in-out;
-    }
+/* Adjust layout for mobile screens (<480px) */
+@media (max-width: 480px) {
+  .E-Shublekha-card {
+    flex: 0 0 90%; /* 1 card visible with margin for centering */
+    margin: 0 4vw;
 
-    .E-Shublekha-card h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
+  }
+  .view-theme{
+    left: 30vw;
+    font-size: 1rem;
+  }  
+}
 
-    .E-Shublekha-card p {
-      margin-bottom: 16px;
-    }
-
-    .E-Shublekha-card button {
-      border: 1px solid black;
-      border-radius: 999px;
-      padding: 8px 32px;
-      background: transparent;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .E-Shublekha-card button:hover {
-      background: black;
-      color: white;
-    }
-
-    .E-Shublekha-card.active {
-      left: 33%;
-      opacity: 1;
-      transform: scale(1);
-      z-index: 200;
-    }
-
-    .E-Shublekha-card.next {
-      left: 66%;
-      opacity: 0.7;
-      transform: scale(0.9);
-    }
-
-    .E-Shublekha-card.previous {
-      left: 0;
-      opacity: 0.7;
-      transform: scale(0.9);
-    }
-
-    @media (max-width: 768px) {
-      .E-Shublekha-carousel {
-        height: 400px;
-      }
-
-      .E-Shublekha-card {
-        width: calc(100% / 2 - 1rem);
-      }
-
-      .E-Shublekha-card.active {
-        left: 25%;
-      }
-
-      .E-Shublekha-card.next {
-        opacity: 0.5;
-        left: 50%;
-      }
-
-      .E-Shublekha-card.previous {
-        opacity: 0.5;
-        left: 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-        .E-Shublekha-carousel {
-          display: flex;
-          flex-direction: column; /* Arrange cards vertically */
-          overflow-y: auto; /* Enable vertical scrolling */
-          scroll-snap-type: y mandatory; /* Use vertical snap behavior */
-          height: auto; /* Adjust height to fit content */
-          max-height: 100vh; /* Optional: Limit height to viewport */
-        }
+@media (min-width: 768px){
+.view-theme{
+    left: 43vw;
+    font-size: 1.8rem;
+  } 
+}   
       
-        .E-Shublekha-card {
-          scroll-snap-align: center; /* Snap card to center while scrolling */
-          flex: 0 0 auto; /* Ensure cards don’t shrink */
-          width: 90%; /* Full-width cards with some margin */
-          margin: 16px auto; /* Center horizontally with spacing */
-          position: relative; /* No offset */
-          transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-          opacity: 1; /* Consistent opacity */
-        }
-      
-        /* Remove active, next, and previous styles for uniformity */
-        .E-Shublekha-card.active,
-        .E-Shublekha-card.next,
-        .E-Shublekha-card.previous {
-          transform: none; /* Remove scale transformations */
-          opacity: 1; /* Same opacity for all */
-          color: black; /* Ensure consistent text color */
-        }
-      }
-      
-      
-  
+.for-moment{
+    background: #f3e6e2;
+    color: #595959;
+}
 
 /* for arinvites, smartcards and themes*/
 
@@ -723,6 +720,7 @@ section:nth-child(3){
     justify-content: center;
     align-items: center;
 }
+
 .timelineDiv .timelineBtn.active {
   background-color: var(--color-secondary-1) !important; 
   color: var(--color-primary-1) !important;
@@ -780,6 +778,121 @@ section:nth-child(3){
     color: var(--color-secondary-1); 
 }
 
+.e-Subhalekha-comments-section {
+  background-color:#404040; /* Retain the same background as requested */
+  padding: 20px;
+  text-align: center;
+  overflow-x:hidden;
+}
+
+.e-Subhalekha-comments-content {
+  position: relative;
+}
+
+.e-Subhalekha-comments-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 20px 0;
+}
+
+.e-Subhalekha-comments-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.e-Subhalekha-comments-floating {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.e-Subhalekha-top-comments, .e-Subhalekha-bottom-comments {
+  display: flex;
+  white-space: nowrap;
+  animation-duration: 30s; /* Adjust the duration for scrolling speed */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.e-Subhalekha-top-comments {
+  animation-name: scroll-left-to-right; /* Top comments scroll left to right */
+  animation-duration: var(--scroll-speed, 10s); /* Use custom property for speed */
+}
+
+.e-Subhalekha-bottom-comments {
+  animation-name: scroll-right-to-left; /* Bottom comments scroll right to left */
+  animation-duration: var(--scroll-speed, 10s); /* Use custom property for speed */
+}
+
+@keyframes scroll-left-to-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.e-Subhalekha-comment-bubble {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 0 15px;
+  font-size: 1rem;
+  font-weight: 400;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+.e-Subhalekha-comment-bubble:hover {
+  background-color: #ffbf00;
+  color: white;
+}
+
+/* Infinite scrolling animations */
+@keyframes scroll-left-to-right {
+  0% {
+    transform: translateX(100%); /* Start off-screen on the right */
+  }
+  100% {
+    transform: translateX(-100%); /* End off-screen on the left */
+  }
+}
+
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(-100%); /* Start off-screen on the left */
+  }
+  100% {
+    transform: translateX(100%); /* End off-screen on the right */
+  }
+}
+
+@media (max-width: 768px) {
+  .e-Subhalekha-comments-section {
+    padding: 15px;
+  }
+
+  .e-Subhalekha-comments-title {
+    font-size: 1.5rem;
+  }
+
+  .e-Subhalekha-comments-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .e-Subhalekha-comment-bubble {
+    font-size: 0.875rem;
+    padding: 8px 16px;
+  }
+}
+
+
 
 </style>
 
@@ -829,9 +942,10 @@ if (isset($_REQUEST['removeFromCart'])) {
     }elseif ($itemType == "theme") {
         redirect("order");
     }
- 
-    
+  
 }
+
+
 
 
 ?>
