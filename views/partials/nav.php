@@ -1,7 +1,7 @@
 <header>
     <div class="h-2">. </div>
     <div class="d-flex justify-content-center">
-        <nav class="navbar navbar-expand-lg navbar-light blur-background main-navbar py-1"
+        <nav class="navbar navbar-expand-lg navbar-light blur-background main-navbar py-2"
             style="width:80vw; background-color: rgba(255, 255, 255, 0.7); backdrop-filter: blur(3px);">
             
             <a href="<?= route("/"); ?>">
@@ -27,7 +27,7 @@
                             <a class="nav-link font-heading" aria-current="page" href="#">Price</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-heading" aria-current="page" href="<?php echo route("themes"); ?>">Themes</a>
+                            <a class="nav-link font-heading" aria-current="page" href="<?php echo route('themes'); ?>">Themes</a>
                         </li>
 
                         <?php if (App::getSession()) { ?>
@@ -47,7 +47,7 @@
 
                         <li class="nav-item">
                             <?php if (!App::getSession()) { ?>
-                                <a class="nav-link font-heading btn btn-secondary rounded-pill" aria-current="page"
+                                <a class="nav-link font-heading btn btn-secondary rounded-pill" style="margin-left:-20px" aria-current="page"
                                     href="<?php echo route('register') . "?back=" . url(); ?>">Login/Signup</a>
                             <?php } ?>
                         </li>
