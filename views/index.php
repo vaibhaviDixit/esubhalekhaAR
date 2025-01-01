@@ -73,7 +73,7 @@ usort($themeFolders, function($a, $b) {
 
             <!-- Title Section -->
             <div class="col-12 mt-5 text-center">
-                <span class="fw-bold for-moment section-title badge rounded-pill mb-4" style="font-size: 1.8rem;">For the moments of life</span>
+                <span class="fw-bold for-moment section-title badge rounded-pill mb-4 px-4" style="font-size: 1.2rem;">For the moments of life</span>
                 <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching Invitation Websites</h2>
             </div>
     
@@ -128,8 +128,9 @@ usort($themeFolders, function($a, $b) {
     
                     </div>
         </div>
+
+        <div class="text-center">  <a href="<?php echo route('themes'); ?>" class="btn btn-primary btn-sm mx-auto my-3">View all themes</a> </div>
     </section>
-    <button class="fw-bold view-theme badge rounded-pill bg-primary position-relative my-3">View all themes</button>
                     
     
     <section>
@@ -143,7 +144,7 @@ usort($themeFolders, function($a, $b) {
                         <h3>Basic</h3>
                         <p>★ Boost your wedding’s online presence with ease...</p>
                         <p>★ Includes a custom wedding website...</p>
-                        <p>★ Active for <strong>2 month</strong>...</p>
+                        <p>★ Active for <strong>1 month</strong>...</p>
                         <p class="fs-4">Rs: <span>999/-</span></p>
                     </div>
                     <div class="E-Shublekha-card">
@@ -161,7 +162,7 @@ usort($themeFolders, function($a, $b) {
                         <p class="fs-4">Rs: <span>11,999/-</span></p>
                     </div>
                 </div>
-                <i class='bi bi-arrow-left-circle-fill carousel-nav prev hidden' style="right:80vw"></i>
+                <button class="carousel-nav next hidden" aria-label="Next">›</button>
             </div>
         </div>
     </section>

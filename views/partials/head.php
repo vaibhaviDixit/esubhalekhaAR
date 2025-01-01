@@ -106,7 +106,7 @@ $(document).ready(function() {
         loop: true,
         margin: 20,
         nav: true,
-          navText: ["<i class='bi bi-arrow-left-circle-fill'></i>", "<i class='bi bi-arrow-right-circle-fill arrow'></i>"], 
+          navText: ["<span class='carousel-control-prev-icon'></span>", "<span class='carousel-control-next-icon'></span>"], 
         dots: false,
         autoplay: true,
         autoplayTimeout: 3000,
@@ -183,7 +183,7 @@ $(document).ready(function() {
     // Manual navigation for small screens
     function manualCarousel(direction) {
         const visibleCards = window.innerWidth < 480 ? 1 : 2; // 1 card <480px, 2 cards 480-768px
-        const scrollStep = cardWidth * visibleCards*1.07;
+        const scrollStep = cardWidth * visibleCards;
     
         if (direction === 'prev') {
             scrollAmount = Math.max(0, scrollAmount - scrollStep); // Prevent negative scroll
@@ -301,20 +301,21 @@ body {
     transform: scale(1.05);
 }
 
-.bi {
-    position: relative;
-    top: 30%;
-    /* padding: 10px; */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    position: absolute;
+    top: 50%;
     transform: translateY(-50%);
-    background-size: cover/;
-    border-radius:90%;
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    background-size: cover;
     z-index: 999;
-    font-size:2rem;
 }
 
-.bi-arrow-left-circle-fill {
-    right: 1vw; /* Adjust for padding from the left edge */
+.carousel-control-prev-icon {
+    right: 5px; /* Adjust for padding from the left edge */
 }
+
 
 .bi-arrow-right-circle-fill {
     left: 1vw; /* Adjust for padding from the right edge */
@@ -806,6 +807,7 @@ section:nth-child(3){
   font-size: 2rem;
   font-weight: 500;
   margin: 20px 0;
+  color: #fff;
 }
 
 .e-Subhalekha-comments-subtitle {

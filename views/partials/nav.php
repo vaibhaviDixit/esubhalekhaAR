@@ -28,7 +28,7 @@
                             <a class="nav-link font-heading" aria-current="page" href="#">Price</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-heading" aria-current="page" href="<?php echo route("themes"); ?>">Themes</a>
+                            <a class="nav-link font-heading" aria-current="page" href="<?php echo route('themes'); ?>">Themes</a>
                         </li>
 
                         <?php if (App::getSession()) { ?>
