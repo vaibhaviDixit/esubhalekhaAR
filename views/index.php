@@ -136,14 +136,14 @@ usort($themeFolders, function($a, $b) {
         <div class="E-Shublekha-container mb-4">
             <h2 class="E-Shublekha-title">Our Plans</h2>
             <div class="E-Shublekha-carousel-wrapper">
-                <button class="carousel-nav prev hidden" aria-label="Previous">‹</button>
+                <i class='bi bi-arrow-right-circle-fill carousel-nav next hidden'></i>
                 <div class="E-Shublekha-carousel">
                     <!-- Plan Cards -->
                     <div class="E-Shublekha-card">
                         <h3>Basic</h3>
                         <p>★ Boost your wedding’s online presence with ease...</p>
                         <p>★ Includes a custom wedding website...</p>
-                        <p>★ Active for <strong>1 month</strong>...</p>
+                        <p>★ Active for <strong>2 month</strong>...</p>
                         <p class="fs-4">Rs: <span>999/-</span></p>
                     </div>
                     <div class="E-Shublekha-card">
@@ -161,7 +161,7 @@ usort($themeFolders, function($a, $b) {
                         <p class="fs-4">Rs: <span>11,999/-</span></p>
                     </div>
                 </div>
-                <button class="carousel-nav next hidden" aria-label="Next">›</button>
+                <i class='bi bi-arrow-left-circle-fill carousel-nav prev hidden' style="right:80vw"></i>
             </div>
         </div>
     </section>
