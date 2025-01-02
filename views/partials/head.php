@@ -48,7 +48,8 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="<?php assets("css/common.css");?>">
     <link rel="stylesheet" href="<?php assets("css/app.css"); ?>">
@@ -92,21 +93,20 @@ $(document).ready(function() {
     });
      
     // Owl Carousel Configurations
-    var owl1 = $('.arOwl');
     var owl2 = $('.themeOwl');
-    var owl3 = $('.cardOwl');
 
     // Shared Owl Carousel settings
     var owlSettings = {
         responsive: {
             0: { items: 1 },
+            480:{items: 2},
             770: { items: 2 },
             1310: { items: 3 }
         },
         loop: true,
         margin: 20,
         nav: true,
-          navText: ["<span class='carousel-control-prev-icon'></span>", "<span class='carousel-control-next-icon'></span>"], 
+          navText: [`<i class='bi bi-arrow-left-circle-fill' style="color: #86363B; "></i>`, `<i class='bi bi-arrow-right-circle-fill arrow' style="color: #86363B; "></i>`], 
         dots: false,
         autoplay: true,
         autoplayTimeout: 3000,
@@ -114,64 +114,13 @@ $(document).ready(function() {
     };
 
     // Initialize Owl Carousels
-    owl1.owlCarousel(owlSettings);
     owl2.owlCarousel(owlSettings);
-    owl3.owlCarousel(owlSettings);
-
-    // Navigation buttons for Owl Carousels
-    $('#prevBtn1').click(function() { owl1.trigger('prev.owl.carousel'); });
-    $('#nextBtn1').click(function() { owl1.trigger('next.owl.carousel'); });
-    $('#prevBtn2').click(function() { owl2.trigger('prev.owl.carousel'); });
-    $('#nextBtn2').click(function() { owl2.trigger('next.owl.carousel'); });
-    $('#prevBtn3').click(function() { owl3.trigger('prev.owl.carousel'); });
-    $('#nextBtn3').click(function() { owl3.trigger('next.owl.carousel'); });
 
     // Navbar toggle
     function toggleNavbar() {
         var navbar = document.querySelector('.navbar-nav');
         navbar.classList.toggle('show');
     }
-
-    // // Card Swipe Cycle Animation
-    // class CardSwipeCycle {
-    //     constructor(cardStack) {
-    //         this.cardStack = cardStack;
-    //         this.cards = Array.from(cardStack.children);
-    //         this.currentIndex = 0;
-    //         this.startAnimation();
-    //     }
-
-    //     startAnimation() {
-    //         console.log('Start animation');
-    //         this.animateNextCard();
-    //     }
-
-    //     animateNextCard() {
-    //         // Remove active and swipe classes
-    //         this.cards.forEach(card => card.classList.remove('active', 'swipe-left'));
-
-    //         const currentCard = this.cards[this.currentIndex];
-    //         currentCard.classList.add('active');
-
-    //         setTimeout(() => {
-    //             currentCard.classList.add('swipe-left');
-    //             setTimeout(() => {
-    //                 this.cardStack.appendChild(currentCard);
-    //                 this.currentIndex = (this.currentIndex + 1) % this.cards.length;
-    //                 setTimeout(() => this.animateNextCard(), 500);
-    //             }, 700);
-    //         }, 2000);
-    //     }
-    // }
-
-    // Initialize Card Swipe Cycle
-    // const cardStack = document.querySelector('.cards-container');
-    // if (cardStack) {
-    //     console.log('Initializing CardSwipeCycle...');
-    //     new CardSwipeCycle(cardStack);
-    // } else {
-    //     console.error('Card stack not found in the DOM.');
-    // }
 
     const carousel = document.querySelector('.E-Shublekha-carousel');
     const cards = document.querySelectorAll('.E-Shublekha-card');
@@ -183,7 +132,7 @@ $(document).ready(function() {
     // Manual navigation for small screens
     function manualCarousel(direction) {
         const visibleCards = window.innerWidth < 480 ? 1 : 2; // 1 card <480px, 2 cards 480-768px
-        const scrollStep = cardWidth * visibleCards;
+        const scrollStep = cardWidth * visibleCards*1.07;
     
         if (direction === 'prev') {
             scrollAmount = Math.max(0, scrollAmount - scrollStep); // Prevent negative scroll
@@ -284,7 +233,7 @@ body {
 .custom-card {
     background-image: url(<?php assets('img/image1.png') ?>);
     width: 325px; 
-    height: 300px; 
+    height: 500px; 
     background-repeat: no-repeat;
 }
 
@@ -301,33 +250,66 @@ body {
     transform: scale(1.05);
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    position: absolute;
-    top: 50%;
+.bi {
+    position: relative;
+    top: 30%;
+    /* padding: 10px; */
     transform: translateY(-50%);
-    width: 40px; /* Adjust as needed */
-    height: 40px; /* Adjust as needed */
-    background-size: cover;
+    background-size: cover/;
+    border-radius:90%;
     z-index: 999;
+    font-size:2rem;
 }
 
-.carousel-control-prev-icon {
-    right: 5px; /* Adjust for padding from the left edge */
+.bi-arrow-left-circle-fill {
+    right: 20px;
 }
 
-.carousel-control-next-icon {
-    left: 5px; /* Adjust for padding from the right edge */
+.bi-arrow-right-circle-fill {
+    left: 20px;
 }
 
+@media(max-width: 480px){
+    .e-subhalekha-next{
+        left:77vw;
+    }
+}
 
+@media (min-width: 480px) and (max-width: 576px){
+    .e-subhalekha-next{
+        left:83vw;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px){
+    .e-subhalekha-next{
+        left:89vw;
+    }
+}
+
+.ordernow-btn:hover{
+    background-color:rgb(236, 236, 236) !important;
+    color: #2F2F2F !important;
+
+}
+.nav-comp:hover{
+    border:none;
+    outline:none;
+}
 .product-image {
-    min-height: 150px;
+    min-height: 250px;
     max-height: 150px;
     width: 100% !important;
     object-fit: cover;
 }
-
+.view-all:hover{
+    background-color: #903A40;
+    color: white;
+    cursor: pointer;
+}
+.card-body{
+    margin :0;
+    height: 200px;
+}
 /* Button Styles */
 .order-now-btn {
     color: var(--color-white) !important;
@@ -695,10 +677,28 @@ section:nth-child(3){
     font-size: 1.8rem;
   } 
 }   
-      
+.nav-name {
+
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    color: #333333; 
+     
+    padding: 5px 10px; 
+    margin: 0; 
+    position:relative;
+    top:0.3vh;
+    display: inline-block; 
+    transition: color 0.3s, border-color 0.3s; 
+}
+
+.nav-name:hover {
+    color: #007BFF; 
+    border-bottom-color: #0056b3;
+}
 .for-moment{
-    background: #f3e6e2;
-    color: #595959;
+    color : #86363B;
+    background-color :rgb(243, 212, 214);
+    border : 1px solid #f3e6e2;
 }
 
 /* for arinvites, smartcards and themes*/
@@ -779,7 +779,7 @@ section:nth-child(3){
 }
 
 .e-Subhalekha-comments-section {
-  background-color:#404040; /* Retain the same background as requested */
+  background-color:#86363B; /* Retain the same background as requested */
   padding: 20px;
   text-align: center;
   overflow-x:hidden;
@@ -792,8 +792,7 @@ section:nth-child(3){
 .e-Subhalekha-comments-title {
   font-size: 2rem;
   font-weight: 500;
-  margin: 20px 0;
-  color: #fff;
+  margin: 15px 0;
 }
 
 .e-Subhalekha-comments-subtitle {

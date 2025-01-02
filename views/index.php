@@ -72,9 +72,9 @@ usort($themeFolders, function($a, $b) {
             </div>
 
             <!-- Title Section -->
-            <div class="col-12 mt-5 text-center">
-                <span class="fw-bold for-moment section-title badge rounded-pill mb-4 px-4" style="font-size: 1.2rem;">For the moments of life</span>
-                <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching Invitation Websites</h2>
+            <div class="col-12 text-center mt-5" style="">
+            <span class="fw-bold for-moment section-title badge rounded-pill mt-5 mt-md-0 mb-4 px-4" style="font-size: 1.2rem; border: 1px solid #86363B; ">For the moments of life</span>
+                <h2 class="fw-bold section-title" style="font-size: 1.8rem;">Wow your guests with eye-catching Wedding Websites</h2>
             </div>
     
           
@@ -90,19 +90,19 @@ usort($themeFolders, function($a, $b) {
                         ?>
 
                            
-                            <div class="card custom-products item mb-3 mx-2">
+                            <div class="card custom-products item mb-3 mx-2 overflow-hidden">
                                 <img class="card-img-top product-image" src="<?= themeAssets($theme['folder'], $theme['img']) ?>" alt="<?= $theme['title'] ?>">
                                 <div class="card-body" style="margin-top: 10px;">
                                      <h5>₹<?= $theme['price'] ?></h5>
                                     <div class="d-flex align-items-center gap-3">
-                                        <div style="margin-top: 5px;"><del>₹35</del></div>
-                                        <div class="rounded-pill d-flex align-items-center justify-content-center" style="font-size: 14px; background-color: #494949; color: white; padding: 5px 9px; text-align: center;">45% off</div>
+                                        <div style="margin-top: 5px;"><del>₹3500</del></div>
+                                        <div class="rounded-pill d-flex align-items-center justify-content-center" style="font-size: 12px; border: 1px solid #F2D5D7; color : #FFFFFF; background-color : #86363B; padding: 3px 9px; text-align: center;">45% off</div>
                                     </div>
                                     <div class="card-text mt-3" style="font-size: 14px;"><?= $theme['title'] ?></div>
                                     <div class="card-text" style="font-size: 12px;">by eSubhalekha.com</div>
-                                    <div class="d-lg-flex gap-3 mt-1">
+                                    <div class="d-flex gap-2 mt-1">
 
-                                        <a href="<?= $theme['url'] ?>" target="_blank"  class="btn btn-dark rounded-pill  d-flex  align-items-center justify-content-center" style="font-size: 12px; padding: 5px 9px;">Preview</a>
+                                        <a href="<?= $theme['url'] ?>" target="_blank"  class="btn btn-dark rounded-pill  d-flex  align-items-center justify-content-center" style="font-size: 14px; padding: 4px 10px;margin : 15px 0px; border: 1px solid #F2D5D7; color : #FFFFFF; background-color : #86363B;">View</a>
 
                                           <form  method="POST">
                                         <?php 
@@ -112,8 +112,8 @@ usort($themeFolders, function($a, $b) {
                                     <input type="hidden" name="itemType" value="theme">
                                     <input type="hidden" name="itemID" value="<?= $theme['themeID'] ?>">
 
-                                        <button type="submit" name="addToCart" class="btn btn-outline-secondary rounded-pill  d-flex  align-items-center justify-content-center" style="font-size: 12px; padding: 5px 9px; width: 100%;
-    border: 1px solid var(--color-secondary-1);">Order Now</button>
+                                        <button type="submit" name="addToCart" class="btn btn-outline-secondary rounded-pill  d-flex  align-items-center justify-content-center ordernow-btn" style="font-size: 14px; padding: 4px 10px;margin : 15px 0px; width: 100%;
+    border: 1px solid #86363B; color : #86363B; background-color : #FFFFFF">Order Now</button>
                                     </form>
                                        
                                       </div>
@@ -128,44 +128,98 @@ usort($themeFolders, function($a, $b) {
     
                     </div>
         </div>
-
-        <div class="text-center">  <a href="<?php echo route('themes'); ?>" class="btn btn-primary btn-sm mx-auto my-3">View all themes</a> </div>
     </section>
+    <div class="flex" style="display: flex; justify-content: center; align-items: center;">
+  <a href="<?php echo route('themes'); ?>" class="fw-bold view-theme badge rounded-pill bg-primary my-3 view-all px-3" style="font-size: 1.1rem; border : 1px solid #F2D5D7; cursor: pointer;">
+    View all themes
+  </a>
+</div>
                     
-    
-    <section>
-        <div class="E-Shublekha-container mb-4">
-            <h2 class="E-Shublekha-title">Our Plans</h2>
+<section id="pricings">
+        <div class="E-Shublekha-container container-sm mb-4">
+            <h2 class="E-Shublekha-title">Pricing</h2>
             <div class="E-Shublekha-carousel-wrapper">
-                <button class="carousel-nav prev hidden" aria-label="Previous">‹</button>
+            <div class="d-flex align-items-center justify-content-between">
+            <i class='bi bi-arrow-right-circle-fill carousel-nav next hidden e-subhalekha-next' ></i>
                 <div class="E-Shublekha-carousel">
                     <!-- Plan Cards -->
                     <div class="E-Shublekha-card">
-                        <h3>Basic</h3>
+                        <!-- <h3>Basic</h3>
                         <p>★ Boost your wedding’s online presence with ease...</p>
                         <p>★ Includes a custom wedding website...</p>
                         <p>★ Active for <strong>1 month</strong>...</p>
-                        <p class="fs-4">Rs: <span>999/-</span></p>
-                    </div>
-                    <div class="E-Shublekha-card">
-                        <h3>Luxury</h3>
-                        <p>★ Ideal for couples planning extended celebrations...</p>
-                        <p>★ A beautifully crafted wedding website...</p>
-                        <p>★ Active for <strong>1 year</strong>...</p>
-                        <p class="fs-4">Rs: <span>5999/-</span></p>
+                        <p class="fs-4">Rs: <span>999/-</span></p> -->
+                        <h3>Basic</h3>
+                        <p style="font-size : 35px;">₹999</p>
+                        <div>
+                            <p style="display: flex; align-items: start; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px; padding-top : 5px;"></i>
+                                <span style="color: rgb(56, 56, 56);" class="text-start" >Boost your wedding’s online presence with ease...</span>
+                            </p>
+                            <p style="display: flex; align-items: center; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px;"></i>
+                                <span class="text-start">Includes a custom wedding website...</span>
+                            </p>
+                            <p style="display: flex; align-items: center; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px;"></i>
+                                <span class="text-start">Active for <strong>1 month</strong>...</span>
+                            </p>
+                            <button style="width:100% ; height : 50px; background-color : #86363B; color : #FFFFFF ; margin-top :20px; border-radius : 10px ; border : 1px solid #F2D5D7" >
+                                    1 Month plan
+                            </button>
+                        </div>  
+
+                        
                     </div>
                     <div class="E-Shublekha-card">
                         <h3>Premium</h3>
-                        <p>★ Cherish everlasting memories...</p>
-                        <p>★ Includes ongoing PR support...</p>
-                        <p>★ Active for a <strong>lifetime</strong>...</p>
-                        <p class="fs-4">Rs: <span>11,999/-</span></p>
+                        <p style="font-size : 35px;">₹5,999</p>
+                        <div>
+                            <p style="display: flex; align-items: start; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px; padding-top : 5px;"></i>
+                                <span style="color: rgb(56, 56, 56);" class="text-start">Ideal for couples planning extended celebrations...</span>
+                            </p>
+                            <p style="display: flex; align-items: center; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px;"></i>
+                                <span class="text-start">A beautifully crafted wedding website...</span>
+                            </p>
+                            <p style="display: flex; align-items: center; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px;"></i>
+                                <span>Active for <strong>1 year</strong>...</span>
+                            </p>
+                            <button style="width:100% ; height : 50px; background-color : #86363B; color : #FFFFFF ; margin-top :20px; border-radius : 10px ; border : 1px solid #F2D5D7" >
+                                    1 Year plan
+                            </button>
+                        </div>   
+                    </div>
+                    <div class="E-Shublekha-card">
+                        <h3>Elite</h3>
+                        <p style="font-size : 35px;">₹11,999</p>
+                        <div>
+                            <p style="display: flex; align-items: start; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px; padding-top : 5px;"></i>
+                                <span style="color: rgb(56, 56, 56);" class="text-start">Cherish everlasting memories...</span>
+                            </p>
+                            <p style="display: flex; align-items: center; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px;"></i>
+                                <span class="text-start">Includes ongoing PR support...</span>
+                            </p>
+                            <p style="display: flex; align-items: center; margin: 5px 0;">
+                                <i class='bx bx-check' style="font-size: 1rem; margin-right: 5px;"></i>
+                                <span class="text-start">Active for a <strong>lifetime</strong>...</span>
+                            </p>
+                            <button style="width:100% ; height : 50px; background-color : #86363B; color : #FFFFFF ; margin-top :20px; border-radius : 10px ; border : 1px solid #F2D5D7" >
+                                    Lifetime plan
+                            </button>
+                        </div>   
                     </div>
                 </div>
-                <button class="carousel-nav next hidden" aria-label="Next">›</button>
+                <i class='bi bi-arrow-left-circle-fill carousel-nav prev hidden e-subhalekha-next'></i>
+                </div>
             </div>
         </div>
     </section>
+
 
 
 
@@ -177,8 +231,8 @@ usort($themeFolders, function($a, $b) {
           <div class="e-Subhalekha-comment-bubble d-none d-sm-block">Amazing experience!</div>
           <div class="e-Subhalekha-comment-bubble d-none d-sm-block">Highly recommend!</div>
         </div>
-        <h2 class="e-Subhalekha-comments-title">They fell in love💗 with our products</h2>
-        <p class="e-Subhalekha-comments-subtitle">Our customers fell in love with personalised products shipped with quality</p>
+        <h2 class="e-Subhalekha-comments-title" style="color :#FFFFFF">They fell in love💗 with our products</h2>
+        <p class="e-Subhalekha-comments-subtitle" style="color :#D1D1D1">Our customers fell in love with personalised products shipped with quality</p>
         <div class="e-Subhalekha-comments-floating e-Subhalekha-bottom-comments">
           <div class="e-Subhalekha-comment-bubble d-none d-sm-block">Will definitely come back!</div>
           <div class="e-Subhalekha-comment-bubble">Fantastic support!</div>
